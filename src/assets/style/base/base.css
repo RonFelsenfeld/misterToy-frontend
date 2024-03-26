@@ -4,6 +4,7 @@
 
 html {
   font-size: 0.625rem;
+  color: var(--main-fn-color);
 }
 
 body,

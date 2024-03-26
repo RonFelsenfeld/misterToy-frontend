@@ -1,0 +1,9 @@
+.app-header {
+  height: 100px;
+  background-color: var(--main-clr-base);
+}
+
+.app-header .main-title {
+  font-size: 4em;
+  margin-inline-start: 0.5em;
+}
