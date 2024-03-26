@@ -1,0 +1,18 @@
+.toy-preview {
+  flex-direction: column;
+  background-color: var(--main-clr-1);
+  padding: 1.5em;
+}
+
+.toy-preview .toy-name {
+  font-size: 2em;
+  margin-block-end: 1em;
+}
+
+.toy-preview .toy-price {
+  font-size: 1.6em;
+}
+
+.toy-preview .toy-stock {
+  font-size: 1.4em;
+}
