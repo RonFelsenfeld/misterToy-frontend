@@ -3,4 +3,7 @@
 
   --main-clr-1: rgb(251, 193, 85);
   --main-clr-base: rgb(255, 206, 114);
+
+  --clr-success: rgb(152, 232, 152);
+  --clr-error: rgb(243, 150, 150);
 }

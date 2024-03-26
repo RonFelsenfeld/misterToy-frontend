@@ -9,6 +9,7 @@ import { HomePage } from './pages/HomePage'
 import { ToyIndex } from './pages/ToyIndex'
 
 import { AppHeader } from './cmps/AppHeader'
+import { UserMsg } from './cmps/UserMsg'
 
 export function App() {
   return (
@@ -24,6 +25,8 @@ export function App() {
             </Routes>
           </main>
         </section>
+
+        <UserMsg />
       </Router>
     </Provider>
   )
