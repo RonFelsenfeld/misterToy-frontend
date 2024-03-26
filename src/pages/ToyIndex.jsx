@@ -34,7 +34,7 @@ export function ToyIndex() {
 
   if (isLoading) return <div className="loading-msg">Loading...</div>
   return (
-    <section className="toy-index main-layout">
+    <section className="toy-index">
       {toys.length ? (
         <ToyList toys={toys} onRemoveToy={onRemoveToy} />
       ) : (

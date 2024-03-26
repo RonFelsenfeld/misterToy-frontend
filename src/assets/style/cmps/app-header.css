@@ -1,7 +1,6 @@
 .app-header {
   height: 100px;
   background-color: var(--main-clr-base);
-  padding-inline: 2em;
 }
 
 .app-header .main-title {
