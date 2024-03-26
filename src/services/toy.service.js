@@ -10,11 +10,31 @@ export const toyService = {
   save,
   remove,
   getEmptyToy,
+  getDefaultFilter,
 }
 
 function query(filterBy = {}) {
   return storageService.query(STORAGE_KEY).then(toys => {
-    return toys
+    let toysToReturn = toys.slice()
+
+    if (filterBy.name) {
+      const regExp = new RegExp(filterBy.name, 'i')
+      toysToReturn = toysToReturn.filter(toy => regExp.test(toy.name))
+    }
+
+    if (filterBy.inStock !== null) {
+      switch (filterBy.inStock) {
+        case true:
+          toysToReturn = toysToReturn.filter(toy => toy.inStock)
+          break
+
+        case false:
+          toysToReturn = toysToReturn.filter(toy => !toy.inStock)
+          break
+      }
+    }
+
+    return toysToReturn
   })
 }
 
@@ -41,6 +61,10 @@ function getEmptyToy() {
     labels: [],
     inStock: true,
   }
+}
+
+function getDefaultFilter() {
+  return { name: '', inStock: null }
 }
 
 ////////////////////////////////////////////////////
