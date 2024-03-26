@@ -6,7 +6,7 @@ export function ToyList({ toys, onRemoveToy }) {
       <ul className="clean-list list-layout">
         {toys.map(toy => (
           <li key={toy._id}>
-            <ToyPreview toy={toy} />
+            <ToyPreview toy={toy} onRemoveToy={onRemoveToy} />
           </li>
         ))}
       </ul>

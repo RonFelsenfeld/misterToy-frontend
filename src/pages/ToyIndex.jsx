@@ -14,7 +14,7 @@ export function ToyIndex() {
   }, [])
 
   function onRemoveToy(toyId) {
-    removeToy()
+    removeToy(toyId)
       .then(() => {
         showSuccessMsg('Toy removed')
       })
