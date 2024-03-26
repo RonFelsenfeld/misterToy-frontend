@@ -7,7 +7,7 @@ import { ToyList } from '../cmps/ToyList'
 
 export function ToyIndex() {
   const toys = useSelector(storeState => storeState.toyModule.toys)
-  const isLoading = useSelector(storeState => storeState.toyModule.toys)
+  const isLoading = useSelector(storeState => storeState.toyModule.isLoading)
 
   useEffect(() => {
     loadToys().catch(err => showErrorMsg('Cannot load toys'))
@@ -32,9 +32,14 @@ export function ToyIndex() {
       .catch(err => showErrorMsg('Had trouble adding toy'))
   }
 
+  if (isLoading) return <div className="loading-msg">Loading...</div>
   return (
     <section className="toy-index main-layout">
-      <ToyList toys={toys} onRemoveToy={onRemoveToy} />
+      {toys.length ? (
+        <ToyList toys={toys} onRemoveToy={onRemoveToy} />
+      ) : (
+        <div className="no-toys-msg">No toys to show</div>
+      )}
     </section>
   )
 }

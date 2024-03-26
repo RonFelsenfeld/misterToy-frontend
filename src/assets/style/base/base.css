@@ -35,3 +35,8 @@ a:visited {
   color: inherit;
   text-decoration: none;
 }
+
+.loading-msg {
+  font-size: 2em;
+  padding: 1em;
+}

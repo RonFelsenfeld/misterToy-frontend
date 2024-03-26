@@ -1,3 +1,8 @@
 .toy-index {
   margin-block-start: 3em;
 }
+
+.no-toys-msg {
+  text-align: center;
+  font-size: 3em;
+}

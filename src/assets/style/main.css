@@ -10,6 +10,7 @@
 /* PAGES */
 @import './pages/home-page.css';
 @import './pages/toy-index.css';
+@import './pages/toy-details.css';
 
 /* CMPS */
 @import './cmps/app-header.css';

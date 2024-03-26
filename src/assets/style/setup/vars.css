@@ -6,4 +6,7 @@
 
   --clr-success: rgb(152, 232, 152);
   --clr-error: rgb(243, 150, 150);
+
+  --clr-in-stock: rgb(41, 209, 41);
+  --clr-out-stock: rgb(243, 64, 64);
 }

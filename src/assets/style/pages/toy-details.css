@@ -1,0 +1,47 @@
+.toy-details {
+  padding: 2em;
+}
+
+.toy-details .btn-back {
+  font-size: 1.5em;
+  margin-block-end: 3em;
+}
+
+.toy-details .details-header {
+  gap: 1em;
+  margin-block-end: 2em;
+}
+
+.toy-details .toy-name {
+  font-size: 3em;
+}
+
+.toy-details .toy-price {
+  font-size: 2em;
+}
+
+.toy-details .toy-labels {
+  gap: 1em;
+}
+
+.toy-details .toy-labels .label {
+  color: var(--main-clr-base);
+  font-size: 1.5em;
+}
+
+.toy-details .toy-desc {
+  font-size: 1.6em;
+  line-height: 1.6em;
+  margin-block-end: 2em;
+}
+
+.toy-details .toy-stock {
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--clr-in-stock);
+}
+
+.toy-details .toy-stock.out-stock {
+  color: var(--clr-out-stock);
+}

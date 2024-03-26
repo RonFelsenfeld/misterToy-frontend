@@ -21,7 +21,11 @@
   font-size: 1.4em;
 }
 
-.toy-preview .btn-remove {
+.toy-preview .actions-container {
+  gap: 0.7em;
+}
+
+.toy-preview .btn {
   background-color: white;
   padding: 0.5em;
 }
