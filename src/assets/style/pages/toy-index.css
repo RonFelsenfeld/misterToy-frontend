@@ -11,6 +11,21 @@
   background-color: var(--main-clr--1);
 }
 
+.toy-index .filter-sort-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 1.5em;
+
+  padding: 2em;
+  margin-block-end: 2em;
+  background-color: var(--main-clr--1);
+}
+
+.toy-index .filter-sort-container .filter-sort-title {
+  font-size: 2em;
+  grid-column: 1 / -1;
+}
+
 .toy-index .no-toys-msg {
   text-align: center;
   font-size: 3em;

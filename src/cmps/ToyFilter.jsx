@@ -25,7 +25,6 @@ export function ToyFilter({ onSetFilter, filterBy }) {
 
   return (
     <section className="toy-filter">
-      <h1 className="filter-title">Filter our toys</h1>
       <form className="flex">
         <input
           type="text"
