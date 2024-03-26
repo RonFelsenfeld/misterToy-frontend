@@ -1,7 +1,9 @@
 import { storageService } from './async-storage.service.js'
+import { httpService } from './http.service.js'
 import { utilService } from './util.service.js'
 
 const STORAGE_KEY = 'toyDB'
+const BASE_URL = 'toy/'
 _createToys()
 
 export const toyService = {
@@ -15,45 +17,51 @@ export const toyService = {
 }
 
 function query(filterBy = {}, sortBy = {}) {
-  return storageService.query(STORAGE_KEY).then(toys => {
-    let toysToReturn = toys.slice()
+  return httpService.get(BASE_URL, filterBy)
 
-    if (filterBy.name) {
-      const regExp = new RegExp(filterBy.name, 'i')
-      toysToReturn = toysToReturn.filter(toy => regExp.test(toy.name))
-    }
+  // return storageService.query(STORAGE_KEY).then(toys => {
+  //   let toysToReturn = toys.slice()
 
-    if (filterBy.inStock !== null) {
-      switch (filterBy.inStock) {
-        case true:
-          toysToReturn = toysToReturn.filter(toy => toy.inStock)
-          break
+  //   if (filterBy.name) {
+  //     const regExp = new RegExp(filterBy.name, 'i')
+  //     toysToReturn = toysToReturn.filter(toy => regExp.test(toy.name))
+  //   }
 
-        case false:
-          toysToReturn = toysToReturn.filter(toy => !toy.inStock)
-          break
-      }
-    }
+  //   if (filterBy.inStock !== null) {
+  //     switch (filterBy.inStock) {
+  //       case true:
+  //         toysToReturn = toysToReturn.filter(toy => toy.inStock)
+  //         break
 
-    toysToReturn = _sortToys(toysToReturn, sortBy)
+  //       case false:
+  //         toysToReturn = toysToReturn.filter(toy => !toy.inStock)
+  //         break
+  //     }
+  //   }
 
-    return toysToReturn
-  })
+  //   toysToReturn = _sortToys(toysToReturn, sortBy)
+
+  //   return toysToReturn
+  // })
 }
 
 function getById(toyId) {
-  return storageService.get(STORAGE_KEY, toyId)
+  return httpService.get(BASE_URL + toyId)
+  // return storageService.get(STORAGE_KEY, toyId)
 }
 
 function remove(toyId) {
-  return storageService.remove(STORAGE_KEY, toyId)
+  return httpService.delete(BASE_URL + toyId)
+  // return storageService.remove(STORAGE_KEY, toyId)
 }
 
 function save(toy) {
   if (toy._id) {
-    return storageService.put(STORAGE_KEY, toy)
+    return httpService.put(BASE_URL, toy)
+    // return storageService.put(STORAGE_KEY, toy)
   } else {
-    return storageService.post(STORAGE_KEY, toy)
+    return httpService.post(BASE_URL, toy)
+    // return storageService.post(STORAGE_KEY, toy)
   }
 }
 
