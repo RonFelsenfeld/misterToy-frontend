@@ -1,0 +1,41 @@
+.toy-edit {
+  gap: 2em;
+  padding: 1em;
+  margin-block-start: 3em;
+
+  background-color: var(--main-clr-1);
+}
+
+.toy-edit h2 {
+  font-size: 3em;
+}
+
+.toy-edit form {
+  gap: 3em;
+}
+
+.toy-edit form .inputs-container {
+  gap: 1em;
+}
+
+.toy-edit form .input-container {
+  gap: 1em;
+}
+
+.toy-edit .input-container label {
+  font-size: 1.6em;
+}
+
+.toy-edit .input-container input {
+  flex-grow: 1;
+  padding: 0.3em;
+  font-size: 1.4em;
+}
+
+.toy-edit .actions-container {
+  gap: 1em;
+}
+
+.toy-edit .actions-container .btn {
+  padding: 0.5em;
+}

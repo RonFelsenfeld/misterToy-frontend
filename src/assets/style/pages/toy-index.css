@@ -1,8 +1,17 @@
 .toy-index {
-  margin-block-start: 3em;
+  margin-block-start: 2em;
 }
 
-.no-toys-msg {
+.toy-index .btn-add-toy {
+  padding: 0.5em;
+  margin-block-end: 1em;
+
+  font-size: 1.6em;
+  font-weight: bold;
+  background-color: var(--main-clr--1);
+}
+
+.toy-index .no-toys-msg {
   text-align: center;
   font-size: 3em;
 }

@@ -8,9 +8,9 @@
 }
 
 .app-header .main-nav {
-  gap: 1em;
+  gap: 2em;
 }
 
 .app-header .main-nav a {
-  font-size: 1.6em;
+  font-size: 1.8em;
 }

@@ -25,6 +25,10 @@ export function ToyPreview({ toy, onRemoveToy }) {
         <Link to={`/toy/${toy._id}`}>
           <button className="btn">Details</button>
         </Link>
+
+        <Link to={`/toy/edit/${toy._id}`}>
+          <button className="btn">Edit</button>
+        </Link>
       </div>
     </section>
   )

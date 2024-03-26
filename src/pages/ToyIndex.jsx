@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { loadToys, removeToy, saveToy } from '../store/actions/toy.actions'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { ToyList } from '../cmps/ToyList'
+import { Link } from 'react-router-dom'
 
 export function ToyIndex() {
   const toys = useSelector(storeState => storeState.toyModule.toys)
@@ -35,6 +36,10 @@ export function ToyIndex() {
   if (isLoading) return <div className="loading-msg">Loading...</div>
   return (
     <section className="toy-index">
+      <Link to="/toy/edit">
+        <button className="btn-add-toy">Add toy</button>
+      </Link>
+
       {toys.length ? (
         <ToyList toys={toys} onRemoveToy={onRemoveToy} />
       ) : (

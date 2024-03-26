@@ -6,6 +6,7 @@ import { store } from './store/store'
 
 import { HomePage } from './pages/HomePage'
 import { ToyIndex } from './pages/ToyIndex'
+import { ToyEdit } from './pages/ToyEdit'
 
 import { AppHeader } from './cmps/AppHeader'
 import { UserMsg } from './cmps/UserMsg'
@@ -21,8 +22,12 @@ export function App() {
           <main>
             <Routes>
               <Route path="/" element={<HomePage />}></Route>
+
               <Route path="/toy" element={<ToyIndex />}></Route>
               <Route path="/toy/:toyId" element={<ToyDetails />}></Route>
+
+              <Route path="/toy/edit" element={<ToyEdit />}></Route>
+              <Route path="/toy/edit/:toyId" element={<ToyEdit />}></Route>
             </Routes>
           </main>
         </section>

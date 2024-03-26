@@ -38,7 +38,7 @@ export function removeToy(toyId) {
 }
 
 export function saveToy(toy) {
-  const type = toy.id ? UPDATE_TOY : ADD_TOY
+  const type = toy._id ? UPDATE_TOY : ADD_TOY
 
   return toyService
     .save(toy)
