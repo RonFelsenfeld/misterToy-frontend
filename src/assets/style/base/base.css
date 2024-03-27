@@ -4,6 +4,7 @@
 
 html {
   font-size: 0.625rem;
+  font-family: RobotoRegular, sans-serif;
   color: var(--main-fn-color);
 }
 
@@ -24,6 +25,7 @@ button {
   cursor: pointer;
   transition: 0.3s;
   border: none;
+  font-family: inherit;
 }
 
 img {
@@ -34,6 +36,11 @@ a:link,
 a:visited {
   color: inherit;
   text-decoration: none;
+}
+
+input,
+select {
+  font-family: inherit;
 }
 
 .loading-msg {

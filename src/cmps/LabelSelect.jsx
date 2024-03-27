@@ -28,7 +28,7 @@ export function LabelSelect({ onSetFilter, filterBy }) {
   const MenuProps = {
     PaperProps: {
       style: {
-        width: 250,
+        width: 150,
       },
     },
   }
@@ -38,7 +38,7 @@ export function LabelSelect({ onSetFilter, filterBy }) {
       <FormControl
         sx={{
           m: 1,
-          width: 200,
+          width: 150,
           backgroundColor: 'white',
           border: 'px solid lightgray',
         }}

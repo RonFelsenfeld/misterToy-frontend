@@ -35,13 +35,13 @@ export function ToyFilter({ onSetFilter, filterBy }) {
           onChange={handleChange}
         />
 
-        <LabelSelect onSetFilter={onSetFilter} filterBy={filterByToEdit} />
-
         <select name="inStock" id="inStock" onChange={handleChange}>
           <option value="all">All</option>
           <option value="inStock">In stock</option>
           <option value="outOfStock">Out of stock</option>
         </select>
+
+        <LabelSelect onSetFilter={onSetFilter} filterBy={filterByToEdit} />
       </form>
     </section>
   )
