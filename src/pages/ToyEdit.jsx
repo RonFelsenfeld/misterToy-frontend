@@ -81,7 +81,8 @@ export function ToyEdit() {
             />
           </div>
 
-          <div className="input-container flex align-center justify-between">
+          <div className="input-container stock flex align-center">
+            {' '}
             <label htmlFor="inStock">In stock: </label>
             <input
               type="checkbox"

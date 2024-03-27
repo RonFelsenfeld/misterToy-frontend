@@ -15,11 +15,16 @@
 }
 
 .toy-edit form .inputs-container {
-  gap: 1em;
+  gap: 2em;
 }
 
 .toy-edit form .input-container {
-  gap: 1em;
+  width: 100%;
+  gap: 1.5em;
+}
+
+.toy-edit form .input-container.stock {
+  justify-content: center;
 }
 
 .toy-edit .input-container label {
@@ -27,7 +32,6 @@
 }
 
 .toy-edit .input-container input {
-  flex-grow: 1;
   padding: 0.3em;
   font-size: 1.4em;
 }
