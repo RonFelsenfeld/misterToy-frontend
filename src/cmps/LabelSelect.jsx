@@ -39,7 +39,7 @@ export function LabelSelect({ onSetFilter, filterBy }) {
         sx={{
           m: 1,
           width: 150,
-          backgroundColor: 'white',
+          backgroundColor: 'var(--clr-gray-base)',
           border: 'px solid lightgray',
         }}
       >

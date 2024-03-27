@@ -1,6 +1,12 @@
 .toy-details .btn-back {
-  font-size: 1.5em;
+  background-color: transparent;
   margin-block-end: 3em;
+}
+
+.toy-details .btn-back::before {
+  font-family: faSolid;
+  content: '\f060';
+  font-size: 1.5em;
 }
 
 .toy-details .details-header {
@@ -21,8 +27,10 @@
 }
 
 .toy-details .toy-labels .label {
-  color: var(--main-clr-base);
   font-size: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--main-clr-base);
 }
 
 .toy-details .toy-desc {

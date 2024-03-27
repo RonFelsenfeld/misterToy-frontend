@@ -13,3 +13,9 @@
   height: 300px;
   margin-block-end: 10em;
 }
+
+.dashboard .chart-container.pie {
+  width: 50%;
+  margin: auto;
+  margin-block-end: 10em;
+}

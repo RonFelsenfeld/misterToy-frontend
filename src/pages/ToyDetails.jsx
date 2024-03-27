@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 
 import { toyService } from '../services/toy.service'
 import { showErrorMsg } from '../services/event-bus.service'
+import { utilService } from '../services/util.service'
 
 export function ToyDetails() {
   const [toy, setToy] = useState(null)
@@ -38,7 +39,7 @@ export function ToyDetails() {
   return (
     <section className="toy-details">
       <Link to={`/toy`}>
-        <button className="btn-back">Back</button>
+        <button className="btn-back"></button>
       </Link>
 
       <header className="details-header flex column">
@@ -47,17 +48,13 @@ export function ToyDetails() {
         <ul className="toy-labels flex clean-list">
           {toy.labels.map((label, idx) => (
             <li key={`${label + idx}`} className="label">
-              {label} |
+              {label}
             </li>
           ))}
         </ul>
       </header>
 
-      <p className="toy-desc">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi voluptas cumque tempore,
-        aperiam sed dolorum rem! Nemo quidem, placeat perferendis tempora aspernatur sit, explicabo
-        veritatis corrupti perspiciatis repellat, enim quibusdam!
-      </p>
+      <p className="toy-desc">{toy.description}</p>
       <p className={`toy-stock ${getStockClass(toy)}`}>{getIsInStock(toy)}</p>
     </section>
   )

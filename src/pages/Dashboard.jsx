@@ -31,7 +31,7 @@ export function Dashboard() {
       <h2 className="dashboard-title">Store dashboard</h2>
 
       <h3 className="chart-title">Price by label</h3>
-      <div className="chart-container flex align-center justify-center">
+      <div className="chart-container pie flex align-center justify-center">
         <PieChart toys={toys} />
       </div>
 

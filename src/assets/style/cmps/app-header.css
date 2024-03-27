@@ -2,6 +2,7 @@
   height: 100px;
   background-color: var(--main-clr-base);
   margin-block-end: 2em;
+  box-shadow: inset 0px -5px 0px 0px rgba(230, 230, 230, 0.547);
 }
 
 .app-header .main-title {
