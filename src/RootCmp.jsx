@@ -22,12 +22,9 @@ export function App() {
           <main>
             <Routes>
               <Route path="/" element={<HomePage />}></Route>
-
               <Route path="/toy" element={<ToyIndex />}></Route>
               <Route path="/toy/:toyId" element={<ToyDetails />}></Route>
-
-              <Route path="/toy/edit" element={<ToyEdit />}></Route>
-              <Route path="/toy/edit/:toyId" element={<ToyEdit />}></Route>
+              <Route path="/toy/edit/:toyId?" element={<ToyEdit />}></Route>
             </Routes>
           </main>
         </section>

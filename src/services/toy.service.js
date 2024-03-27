@@ -4,7 +4,7 @@ import { utilService } from './util.service.js'
 
 const STORAGE_KEY = 'toyDB'
 const BASE_URL = 'toy/'
-_createToys()
+// _createToys()
 
 export const toyService = {
   query,
@@ -17,7 +17,7 @@ export const toyService = {
 }
 
 function query(filterBy = {}, sortBy = {}) {
-  return httpService.get(BASE_URL, filterBy)
+  return httpService.get(BASE_URL, { filterBy, sortBy })
 
   // return storageService.query(STORAGE_KEY).then(toys => {
   //   let toysToReturn = toys.slice()
