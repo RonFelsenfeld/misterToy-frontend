@@ -5,6 +5,7 @@ import '../src/assets/style/main.css'
 import { store } from './store/store'
 
 import { HomePage } from './pages/HomePage'
+import { About } from './pages/About'
 import { ToyIndex } from './pages/ToyIndex'
 import { ToyEdit } from './pages/ToyEdit'
 import { ToyDetails } from './pages/ToyDetails'
@@ -23,6 +24,7 @@ export function App() {
           <main>
             <Routes>
               <Route path="/" element={<HomePage />}></Route>
+              <Route path="/about" element={<About />}></Route>
               <Route path="/dashboard" element={<Dashboard />}></Route>
               <Route path="/toy" element={<ToyIndex />}></Route>
               <Route path="/toy/:toyId" element={<ToyDetails />}></Route>

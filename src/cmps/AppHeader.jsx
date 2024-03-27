@@ -8,6 +8,7 @@ export function AppHeader() {
 
         <nav className="main-nav flex align-center">
           <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
           <NavLink to="/toy">Toys</NavLink>
           <NavLink to="/dashboard">Dashboard</NavLink>
         </nav>
