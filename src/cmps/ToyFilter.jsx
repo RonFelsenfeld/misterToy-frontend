@@ -14,6 +14,8 @@ export function ToyFilter({ onSetFilter, filterBy }) {
   function handleChange({ target }) {
     let { value, name: field, type } = target
 
+    if (type === 'number') value = +value
+
     if (type === 'select-one') {
       if (value === 'inStock') value = true
       else if (value === 'outOfStock') value = false
@@ -32,6 +34,15 @@ export function ToyFilter({ onSetFilter, filterBy }) {
           placeholder="Filter by name"
           name="name"
           value={filterByToEdit.name}
+          onChange={handleChange}
+        />
+
+        <input
+          type="number"
+          id="maxPrice"
+          placeholder="Filter by price"
+          name="maxPrice"
+          value={filterByToEdit.maxPrice ? filterByToEdit.maxPrice : ''}
           onChange={handleChange}
         />
 

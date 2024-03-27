@@ -80,7 +80,7 @@ function getEmptyToy() {
 }
 
 function getDefaultFilter() {
-  return { name: '', inStock: null, labels: [] }
+  return { name: '', inStock: null, labels: [], maxPrice: 0 }
 }
 
 function getDefaultSort() {

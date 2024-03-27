@@ -3,7 +3,7 @@ import { BranchesMap } from '../cmps/BranchesMap'
 export function About() {
   return (
     <section className="about">
-      <h1 className="about-title">About us:</h1>
+      <h1 className="about-title">About us</h1>
       <h3 className="greet">Hi there!</h3>
 
       <div className="about-desc flex column">
