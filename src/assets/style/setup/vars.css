@@ -10,4 +10,6 @@
 
   --clr-in-stock: rgb(41, 209, 41);
   --clr-out-stock: rgb(243, 64, 64);
+
+  --clr-active-link: #df6767;
 }
