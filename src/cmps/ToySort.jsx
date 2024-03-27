@@ -7,9 +7,9 @@ export function ToySort({ onSetSort, sortBy }) {
     }
 
     if (type === 'checkbox') {
-      const currSort = Object.keys(sortBy)[0]
-      const dir = sortBy[currSort] === 1 ? -1 : 1
-      onSetSort({ [currSort]: dir })
+      const currSortCriteria = Object.keys(sortBy)[0]
+      const newDir = sortBy[currSortCriteria] * -1
+      onSetSort({ [currSortCriteria]: newDir })
     }
   }
 

@@ -9,7 +9,7 @@
 }
 
 .toy-preview .toy-desc-container {
-  gap: 1em;
+  gap: 2em;
   margin-block-end: 2em;
 }
 
@@ -18,7 +18,13 @@
 }
 
 .toy-preview .toy-stock {
-  font-size: 1.4em;
+  font-size: 1.6em;
+  text-transform: uppercase;
+  color: var(--clr-in-stock);
+}
+
+.toy-preview .toy-stock.out-stock {
+  color: var(--clr-out-stock);
 }
 
 .toy-preview .actions-container {

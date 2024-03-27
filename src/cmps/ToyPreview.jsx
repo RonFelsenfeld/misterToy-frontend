@@ -6,6 +6,11 @@ export function ToyPreview({ toy, onRemoveToy }) {
     return 'Out of stock'
   }
 
+  function getStockClass(toy) {
+    if (!toy.inStock) return 'out-stock'
+    return ''
+  }
+
   return (
     <section className="toy-preview flex column align-center">
       <h4 className="toy-name">{toy.name}</h4>
@@ -14,7 +19,7 @@ export function ToyPreview({ toy, onRemoveToy }) {
         <p className="toy-price">
           Price: <span>${toy.price}</span>
         </p>
-        <p className="toy-stock">{getIsInStock(toy)}</p>
+        <p className={`toy-stock ${getStockClass(toy)}`}>{getIsInStock(toy)}</p>
       </div>
 
       <div className="actions-container flex">
