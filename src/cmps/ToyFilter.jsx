@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 
 import { utilService } from '../services/util.service'
-import { useLinkClickHandler } from 'react-router-dom'
+import { LabelSelect } from './LabelSelect'
 
 export function ToyFilter({ onSetFilter, filterBy }) {
   const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
-  onSetFilter = useRef(utilService.debounce(onSetFilter, 300))
+  const debounceOnSetFilter = useRef(utilService.debounce(onSetFilter, 300))
 
   useEffect(() => {
-    onSetFilter.current(filterByToEdit)
+    debounceOnSetFilter.current(filterByToEdit)
   }, [filterByToEdit])
 
   function handleChange({ target }) {
@@ -25,7 +25,7 @@ export function ToyFilter({ onSetFilter, filterBy }) {
 
   return (
     <section className="toy-filter">
-      <form className="flex">
+      <form className="flex align-center">
         <input
           type="text"
           id="name"
@@ -34,6 +34,8 @@ export function ToyFilter({ onSetFilter, filterBy }) {
           value={filterByToEdit.name}
           onChange={handleChange}
         />
+
+        <LabelSelect onSetFilter={onSetFilter} filterBy={filterByToEdit} />
 
         <select name="inStock" id="inStock" onChange={handleChange}>
           <option value="all">All</option>

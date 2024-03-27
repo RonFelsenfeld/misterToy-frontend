@@ -22,6 +22,8 @@ export function ToyPreview({ toy, onRemoveToy }) {
         <p className={`toy-stock ${getStockClass(toy)}`}>{getIsInStock(toy)}</p>
       </div>
 
+      <img className="toy-img" src={`https://robohash.org/${toy.name}?set=set1`} alt="" />
+
       <div className="actions-container flex">
         <button className="btn" onClick={() => onRemoveToy(toy._id)}>
           Remove

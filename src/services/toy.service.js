@@ -14,6 +14,7 @@ export const toyService = {
   getEmptyToy,
   getDefaultFilter,
   getDefaultSort,
+  getLabels,
   getPricesPerLabelMap,
   getInStockByLabel,
   getSalesStats,
@@ -78,11 +79,25 @@ function getEmptyToy() {
 }
 
 function getDefaultFilter() {
-  return { name: '', inStock: null }
+  return { name: '', inStock: null, labels: [] }
 }
 
 function getDefaultSort() {
   return { name: 1 }
+}
+
+function getLabels() {
+  const labels = [
+    'On wheels',
+    'Box game',
+    'Art',
+    'Baby',
+    'Doll',
+    'Puzzle',
+    'Outdoor',
+    'Battery Powered',
+  ]
+  return labels
 }
 
 function getPricesPerLabelMap(toys) {
@@ -145,21 +160,6 @@ function _createToys() {
     toys.push(_createToy('Superman'))
     utilService.saveToStorage(STORAGE_KEY, toys)
   }
-}
-
-function _getLabels() {
-  const labels = [
-    'On wheels',
-    'Box game',
-    'Art',
-    'Baby',
-    'Doll',
-    'Puzzle',
-    'Outdoor',
-    'Battery Powered',
-  ]
-
-  return labels
 }
 
 function _sortToys(toys, sortBy) {

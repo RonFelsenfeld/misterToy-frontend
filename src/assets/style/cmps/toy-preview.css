@@ -27,6 +27,10 @@
   color: var(--clr-out-stock);
 }
 
+.toy-preview .toy-img {
+  margin-block-end: 1.5em;
+}
+
 .toy-preview .actions-container {
   gap: 0.7em;
 }
