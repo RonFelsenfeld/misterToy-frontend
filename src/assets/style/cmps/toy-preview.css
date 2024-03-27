@@ -2,7 +2,7 @@
   border-radius: var(--main-br);
   padding: 1.5em;
 
-  background-color: var(--main-clr-1);
+  background-color: var(--clr-gray--1);
   box-shadow: var(--box-shadow);
 }
 
@@ -61,7 +61,7 @@
 }
 
 .toy-preview .actions-container .btn:hover::before {
-  color: var(--clr-gray-base);
+  color: var(--main-clr-1);
 }
 
 .toy-preview .actions-container .btn.remove::before {

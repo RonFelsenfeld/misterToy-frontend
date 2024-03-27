@@ -3,7 +3,7 @@
   border-radius: var(--btn-br);
   margin-block-end: 1em;
 
-  background-color: var(--main-clr--1);
+  background-color: var(--clr-gray--1);
   box-shadow: var(--box-shadow);
 }
 
@@ -23,7 +23,7 @@
   margin-block-end: 2em;
 
   box-shadow: var(--box-shadow);
-  background-color: var(--main-clr--1);
+  background-color: var(--clr-gray--1);
 }
 
 .toy-index .filter-sort-container .filter-sort-title {

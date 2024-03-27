@@ -1,4 +1,10 @@
-.about h1 {
+.about {
+  padding: 3em;
+  border-radius: var(--main-br);
+  background-color: var(--clr-gray--1);
+}
+
+.about .about-title {
   font-size: 3em;
   margin-block-end: 1em;
 }

@@ -21,6 +21,10 @@ a {
   padding: 0;
 }
 
+body {
+  background-color: var(--main-clr--1);
+}
+
 button {
   cursor: pointer;
   transition: 0.3s;

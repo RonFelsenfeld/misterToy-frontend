@@ -20,7 +20,7 @@ export function BranchesMap() {
   }
 
   return (
-    <div style={{ height: '50vh', width: '100%' }}>
+    <div style={{ height: '50vh', width: '100%', marginBlockEnd: '3em' }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: 'AIzaSyBRVkXzBLhvXI7QvhMHd0dpG2u2X_R72no' }}
         center={coords}

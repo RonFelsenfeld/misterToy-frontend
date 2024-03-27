@@ -1,3 +1,9 @@
+.toy-details {
+  padding: 2.5em;
+  border-radius: var(--main-br);
+  background-color: var(--clr-gray--1);
+}
+
 .toy-details .btn-back {
   background-color: transparent;
   margin-block-end: 3em;

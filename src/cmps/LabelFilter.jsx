@@ -10,7 +10,7 @@ import Checkbox from '@mui/material/Checkbox'
 
 import { toyService } from '../services/toy.service'
 
-export function LabelSelect({ onSetFilter, filterBy }) {
+export function LabelFilter({ onSetFilter, filterBy }) {
   const [filterByLabels, setFilterByLabels] = useState([])
   const labels = toyService.getLabels()
 
@@ -39,7 +39,7 @@ export function LabelSelect({ onSetFilter, filterBy }) {
         sx={{
           m: 1,
           width: 150,
-          backgroundColor: 'var(--clr-gray-base)',
+          backgroundColor: 'var(--clr-gray--1)',
           border: 'px solid lightgray',
         }}
       >

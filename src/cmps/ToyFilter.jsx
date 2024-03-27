@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 import { utilService } from '../services/util.service'
-import { LabelSelect } from './LabelSelect'
+import { LabelFilter } from './LabelFilter'
 
 export function ToyFilter({ onSetFilter, filterBy }) {
   const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
@@ -41,7 +41,7 @@ export function ToyFilter({ onSetFilter, filterBy }) {
           <option value="outOfStock">Out of stock</option>
         </select>
 
-        <LabelSelect onSetFilter={onSetFilter} filterBy={filterByToEdit} />
+        <LabelFilter onSetFilter={onSetFilter} filterBy={filterByToEdit} />
       </form>
     </section>
   )

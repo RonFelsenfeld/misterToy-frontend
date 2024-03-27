@@ -28,21 +28,23 @@ export function Dashboard() {
   if (!toys) return <div className="loading-msg">Loading dashboard...</div>
   return (
     <section className="dashboard">
-      <h2 className="dashboard-title">Store dashboard</h2>
+      <h2 className="dashboard-title">Statistics</h2>
 
-      <h3 className="chart-title">Price by label</h3>
-      <div className="chart-container pie flex align-center justify-center">
-        <PieChart toys={toys} />
-      </div>
+      <div className="charts-container flex column align-center">
+        <h3 className="chart-title">Price by label</h3>
+        <div className="chart-container pie flex align-center justify-center">
+          <PieChart toys={toys} />
+        </div>
 
-      <h3 className="chart-title">In stock by label (%)</h3>
-      <div className="chart-container flex align-center justify-center">
-        <BarChart toys={toys} />
-      </div>
+        <h3 className="chart-title">In stock by label (%)</h3>
+        <div className="chart-container flex align-center justify-center">
+          <BarChart toys={toys} />
+        </div>
 
-      <h3 className="chart-title">Sales per month</h3>
-      <div className="chart-container flex align-center justify-center">
-        <LineChart toys={toys} />
+        <h3 className="chart-title">Sales per month</h3>
+        <div className="chart-container flex align-center justify-center">
+          <LineChart toys={toys} />
+        </div>
       </div>
     </section>
   )

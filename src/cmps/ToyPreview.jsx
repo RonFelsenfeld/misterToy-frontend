@@ -12,7 +12,7 @@ export function ToyPreview({ toy, onRemoveToy }) {
   }
 
   return (
-    <section className="toy-preview flex column align-center">
+    <article className="toy-preview flex column align-center">
       <h4 className="toy-name">{toy.name}</h4>
 
       <div className="toy-desc-container flex column align-center">
@@ -33,6 +33,6 @@ export function ToyPreview({ toy, onRemoveToy }) {
           <button className="btn edit"></button>
         </Link>
       </div>
-    </section>
+    </article>
   )
 }

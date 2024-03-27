@@ -13,6 +13,8 @@ export function About() {
       </div>
 
       <BranchesMap />
+
+      <h4 className="greet">We are waiting for you!</h4>
     </section>
   )
 }
