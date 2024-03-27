@@ -1,6 +1,6 @@
 .toy-edit {
   gap: 2em;
-  padding: 1em;
+  padding-block: 2.5em;
   margin-block-start: 3em;
 
   background-color: var(--main-clr-1);
@@ -38,8 +38,14 @@
 
 .toy-edit .actions-container {
   gap: 1em;
+  width: 100%;
 }
 
 .toy-edit .actions-container .btn {
   padding: 0.5em;
+}
+
+.toy-edit .actions-container .btn.btn-save {
+  flex-grow: 1;
+  background-color: var(--clr-success);
 }
