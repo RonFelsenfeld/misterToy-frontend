@@ -7,10 +7,11 @@ import { store } from './store/store'
 import { HomePage } from './pages/HomePage'
 import { ToyIndex } from './pages/ToyIndex'
 import { ToyEdit } from './pages/ToyEdit'
+import { ToyDetails } from './pages/ToyDetails'
+import { Dashboard } from './pages/Dashboard'
 
 import { AppHeader } from './cmps/AppHeader'
 import { UserMsg } from './cmps/UserMsg'
-import { ToyDetails } from './pages/ToyDetails'
 
 export function App() {
   return (
@@ -22,6 +23,7 @@ export function App() {
           <main>
             <Routes>
               <Route path="/" element={<HomePage />}></Route>
+              <Route path="/dashboard" element={<Dashboard />}></Route>
               <Route path="/toy" element={<ToyIndex />}></Route>
               <Route path="/toy/:toyId" element={<ToyDetails />}></Route>
               <Route path="/toy/edit/:toyId?" element={<ToyEdit />}></Route>

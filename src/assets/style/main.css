@@ -12,6 +12,7 @@
 @import './pages/toy-index.css';
 @import './pages/toy-details.css';
 @import './pages/toy-edit.css';
+@import './pages/dashboard.css';
 
 /* CMPS */
 @import './cmps/app-header.css';

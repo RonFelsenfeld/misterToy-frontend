@@ -14,6 +14,9 @@ export const toyService = {
   getEmptyToy,
   getDefaultFilter,
   getDefaultSort,
+  getPricesPerLabelMap,
+  getInStockByLabel,
+  getSalesStats,
 }
 
 function query(filterBy = {}, sortBy = {}) {
@@ -82,6 +85,35 @@ function getDefaultSort() {
   return { name: 1 }
 }
 
+function getPricesPerLabelMap(toys) {
+  const pricesPerLabelMap = toys.reduce((map, toy) => {
+    toy.labels.forEach(label => {
+      map[label] = map[label] ? map[label] + toy.price : toy.price
+    })
+
+    return map
+  }, {})
+
+  return pricesPerLabelMap
+}
+
+function getInStockByLabel(toys) {
+  const inStockPerLabelMap = toys.reduce((map, toy) => {
+    toy.labels.forEach(label => {
+      if (!map[label]) map[label] = 0
+      map[label]++
+    })
+
+    return map
+  }, {})
+
+  return inStockPerLabelMap
+}
+
+function getSalesStats() {
+  return _createDemoSales()
+}
+
 ////////////////////////////////////////////////////
 
 function _createToy(name = '') {
@@ -144,4 +176,11 @@ function _sortToys(toys, sortBy) {
   }
 
   return toys
+}
+
+function _createDemoSales() {
+  const months = ['June', 'July', 'August', 'September', 'October', 'November']
+  const sales = [1000, 4134, 3214, 2451, 3000, 4672]
+
+  return { months, sales }
 }

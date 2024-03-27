@@ -1,6 +1,7 @@
 .app-header {
   height: 100px;
   background-color: var(--main-clr-base);
+  margin-block-end: 2em;
 }
 
 .app-header .main-title {
