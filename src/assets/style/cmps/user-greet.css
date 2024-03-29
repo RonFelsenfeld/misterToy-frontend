@@ -1,0 +1,15 @@
+.user-greet {
+  gap: 1em;
+  margin-block-end: 2em;
+}
+
+.user-greet h3 {
+  font-size: 2em;
+}
+
+.user-greet .btn-logout {
+  gap: 1em;
+  background-color: transparent;
+  color: var(--clr-login-btn);
+  text-decoration: underline;
+}

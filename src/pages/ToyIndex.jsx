@@ -8,12 +8,14 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { ToyList } from '../cmps/ToyList'
 import { ToyFilter } from '../cmps/ToyFilter'
 import { ToySort } from '../cmps/ToySort'
+import { UserGreet } from '../cmps/UserGreet'
 
 export function ToyIndex() {
   const toys = useSelector(storeState => storeState.toyModule.toys)
   const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
   const sortBy = useSelector(storeState => storeState.toyModule.sortBy)
   const isLoading = useSelector(storeState => storeState.toyModule.isLoading)
+  const user = useSelector(storeState => storeState.userModule.loggedInUser)
 
   useEffect(() => {
     loadToys().catch(err => showErrorMsg('Cannot load toys'))
@@ -38,6 +40,8 @@ export function ToyIndex() {
 
   return (
     <section className="toy-index">
+      {user && <UserGreet />}
+
       <Link to="/toy/edit">
         <button className="btn-add-toy"></button>
       </Link>

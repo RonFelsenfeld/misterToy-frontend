@@ -1,6 +1,9 @@
+import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
 export function AppHeader() {
+  const user = useSelector(storeState => storeState.userModule.loggedInUser)
+
   return (
     <section className="app-header main-layout full">
       <div className="flex align-center justify-between">
@@ -11,7 +14,8 @@ export function AppHeader() {
           <NavLink to="/about">About</NavLink>
           <NavLink to="/toy">Toys</NavLink>
           <NavLink to="/dashboard">Dashboard</NavLink>
-          <NavLink to="/login">Login</NavLink>
+
+          {!user && <NavLink to="/login">Login</NavLink>}
         </nav>
       </div>
     </section>
