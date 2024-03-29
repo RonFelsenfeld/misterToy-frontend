@@ -11,6 +11,7 @@ export const toyService = {
   getById,
   save,
   remove,
+  addToyMsg,
   getEmptyToy,
   getDefaultFilter,
   getDefaultSort,
@@ -68,6 +69,10 @@ function save(toy) {
     return httpService.post(BASE_URL, toy)
     // return storageService.post(STORAGE_KEY, toy)
   }
+}
+
+function addToyMsg(toy, msg) {
+  return httpService.post(BASE_URL + toy._id + '/msg', { txt: msg })
 }
 
 function getEmptyToy() {

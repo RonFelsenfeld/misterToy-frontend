@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { saveToy } from '../store/actions/toy.actions'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 
-export function ToyMsg({ toy }) {
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { toyService } from '../services/toy.service'
+
+export function ToyMsg({ toy, setToy }) {
   const user = useSelector(storeState => storeState.userModule.loggedInUser)
   const [msg, setMsg] = useState('')
 
@@ -14,12 +15,12 @@ export function ToyMsg({ toy }) {
 
   async function onAddMsg(ev) {
     ev.preventDefault()
-    toy.msgs.push(msg)
 
     try {
-      await saveToy(toy)
+      const savedMsg = await toyService.addToyMsg(toy, msg)
       showSuccessMsg('Message added')
       setMsg('')
+      setToy(prevToy => ({ ...prevToy, msgs: [...prevToy.msgs, savedMsg] }))
     } catch (err) {
       console.error('Had issues in adding msg', err)
       showErrorMsg('Had issues in adding your message')
@@ -37,6 +38,7 @@ export function ToyMsg({ toy }) {
             value={msg}
             placeholder="Your message"
             onChange={handleChange}
+            required
           />
 
           <button className="btn-add-msg">Add</button>
@@ -44,11 +46,12 @@ export function ToyMsg({ toy }) {
       )}
 
       <h3 className="msgs-title">Toys Messages:</h3>
-      <ul className="flex clean-list">
+
+      <ul className="flex column clean-list">
         {toy.msgs.map(msg => (
-          <li key={`${msg._id}`} className="toy-msg">
-            <p>
-              By: <span>{msg.by.fullname}</span>: <span>{msg.txt}</span>
+          <li key={`${msg.id}`} className="toy-msg flex align-center">
+            <p className="msg-txt">
+              {msg.txt} <span className="msg-by">({msg.by.fullname})</span>
             </p>
           </li>
         ))}

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 
 import { toyService } from '../services/toy.service'
 import { showErrorMsg } from '../services/event-bus.service'
-import { utilService } from '../services/util.service'
 import { ToyMsg } from '../cmps/ToyMsg'
 
 export function ToyDetails() {
@@ -62,7 +62,7 @@ export function ToyDetails() {
         <img className="toy-img" src={`https://robohash.org/${toy.name}?set=set1`} alt="" />
       </div>
 
-      <ToyMsg toy={toy} />
+      <ToyMsg toy={toy} setToy={setToy} />
     </section>
   )
 }
