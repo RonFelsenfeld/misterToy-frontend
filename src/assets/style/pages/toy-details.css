@@ -15,9 +15,13 @@
   font-size: 1.5em;
 }
 
-.toy-details .details-header {
+.toy-details .main-container {
+  gap: 2em;
+  margin-block-end: 3em;
+}
+
+.toy-details .details-container {
   gap: 1em;
-  margin-block-end: 2em;
 }
 
 .toy-details .toy-name {
@@ -42,7 +46,7 @@
 .toy-details .toy-desc {
   font-size: 1.6em;
   line-height: 1.6em;
-  margin-block-end: 2em;
+  text-align: justify;
 }
 
 .toy-details .toy-stock {
@@ -54,4 +58,33 @@
 
 .toy-details .toy-stock.out-stock {
   color: var(--clr-out-stock);
+}
+
+.toy-details .toy-msgs form {
+  gap: 0.5em;
+  margin-block-end: 1.5em;
+}
+
+.toy-details .toy-msgs form .msg-input {
+  padding: 0.5em;
+  border: 1.5px solid var(--clr-gray-1);
+  font-family: inherit;
+  width: 30%;
+}
+
+.toy-details .toy-msgs form .btn-add-msg {
+  width: 4em;
+  border: 1.5px solid var(--clr-gray-1);
+
+  font-size: 1.6em;
+  background-color: var(--clr-login-btn);
+  color: var(--clr-gray--1);
+}
+
+.toy-details .toy-msgs .msgs-title {
+  font-size: 2em;
+}
+
+.toy-details .toy-msgs .toy-msg {
+  font-size: 1.6em;
 }
