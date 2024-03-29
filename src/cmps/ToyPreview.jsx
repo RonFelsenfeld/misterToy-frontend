@@ -1,6 +1,9 @@
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 export function ToyPreview({ toy, onRemoveToy }) {
+  const user = useSelector(storeState => storeState.userModule.loggedInUser)
+
   function getIsInStock(toy) {
     if (toy.inStock) return 'In stock'
     return 'Out of stock'
@@ -23,15 +26,18 @@ export function ToyPreview({ toy, onRemoveToy }) {
       <img className="toy-img" src={`https://robohash.org/${toy.name}?set=set1`} alt="" />
 
       <div className="actions-container flex">
-        <button className="btn remove" onClick={() => onRemoveToy(toy._id)}></button>
-
         <Link to={`/toy/${toy._id}`}>
           <button className="btn details"></button>
         </Link>
 
-        <Link to={`/toy/edit/${toy._id}`}>
-          <button className="btn edit"></button>
-        </Link>
+        {user && user.isAdmin && (
+          <>
+            <button className="btn remove" onClick={() => onRemoveToy(toy._id)}></button>
+            <Link to={`/toy/edit/${toy._id}`}>
+              <button className="btn edit"></button>
+            </Link>
+          </>
+        )}
       </div>
     </article>
   )

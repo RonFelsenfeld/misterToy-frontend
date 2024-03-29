@@ -42,9 +42,11 @@ export function ToyIndex() {
     <section className="toy-index">
       {user && <UserGreet />}
 
-      <Link to="/toy/edit">
-        <button className="btn-add-toy"></button>
-      </Link>
+      {user && user.isAdmin && (
+        <Link to="/toy/edit">
+          <button className="btn-add-toy"></button>
+        </Link>
+      )}
 
       <div className="filter-sort-container">
         <h2 className="filter-sort-title">Filter & sort your toys</h2>
