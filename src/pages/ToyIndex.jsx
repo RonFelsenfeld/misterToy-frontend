@@ -27,14 +27,13 @@ export function ToyIndex() {
     setSortBy(sortBy)
   }
 
-  function onRemoveToy(toyId) {
-    removeToy(toyId)
-      .then(() => {
-        showSuccessMsg('Toy removed')
-      })
-      .catch(err => {
-        showErrorMsg('Cannot remove Toy')
-      })
+  async function onRemoveToy(toyId) {
+    try {
+      await removeToy(toyId)
+      showSuccessMsg('Toy removed')
+    } catch (err) {
+      showErrorMsg('Cannot remove Toy')
+    }
   }
 
   return (

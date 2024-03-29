@@ -5,6 +5,7 @@
   --main-clr-base: rgb(255, 206, 114);
   --main-clr--1: rgb(255, 223, 165);
 
+  --clr-gray-1: #c4c4c4;
   --clr-gray-base: #f6f6f6;
   --clr-gray--1: #fbfbfb;
 
@@ -15,6 +16,7 @@
   --clr-out-stock: rgb(243, 64, 64);
 
   --clr-active-link: #df6767;
+  --clr-login-btn: #0866ff;
 
   --main-br: 10px;
   --btn-br: 7px;

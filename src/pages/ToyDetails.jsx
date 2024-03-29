@@ -14,15 +14,15 @@ export function ToyDetails() {
     if (toyId) loadToy()
   }, [toyId])
 
-  function loadToy() {
-    toyService
-      .getById(toyId)
-      .then(setToy)
-      .catch(err => {
-        console.error('Had issues with loading toy details', err)
-        showErrorMsg("Could not load toy's details")
-        navigate('/toy')
-      })
+  async function loadToy() {
+    try {
+      const toy = await toyService.getById(toyId)
+      setToy(toy)
+    } catch (err) {
+      console.error('Had issues with loading toy details', err)
+      showErrorMsg("Could not load toy's details")
+      navigate('/toy')
+    }
   }
 
   function getIsInStock(toy) {

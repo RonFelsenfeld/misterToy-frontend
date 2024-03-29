@@ -10,6 +10,7 @@ import { ToyIndex } from './pages/ToyIndex'
 import { ToyEdit } from './pages/ToyEdit'
 import { ToyDetails } from './pages/ToyDetails'
 import { Dashboard } from './pages/Dashboard'
+import { LoginSignup } from './pages/LoginSignup'
 
 import { AppHeader } from './cmps/AppHeader'
 import { UserMsg } from './cmps/UserMsg'
@@ -26,6 +27,8 @@ export function App() {
               <Route path="/" element={<HomePage />}></Route>
               <Route path="/about" element={<About />}></Route>
               <Route path="/dashboard" element={<Dashboard />}></Route>
+              <Route path="/login" element={<LoginSignup />}></Route>
+
               <Route path="/toy" element={<ToyIndex />}></Route>
               <Route path="/toy/:toyId" element={<ToyDetails />}></Route>
               <Route path="/toy/edit/:toyId?" element={<ToyEdit />}></Route>

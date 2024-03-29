@@ -15,15 +15,15 @@ export function ToyEdit() {
     if (toyId) loadToy()
   }, [toyId])
 
-  function loadToy() {
-    toyService
-      .getById(toyId)
-      .then(setToyToEdit)
-      .catch(err => {
-        console.error('Edit toy -> Could not load toy', err)
-        showErrorMsg('Could not load toy')
-        navigate('/toy')
-      })
+  async function loadToy() {
+    try {
+      const toy = await toyService.getById(toyId)
+      setToyToEdit(toy)
+    } catch (err) {
+      console.error('Had issues with loading toy details', err)
+      showErrorMsg("Could not load toy's details")
+      navigate('/toy')
+    }
   }
 
   function handleChange({ target }) {
@@ -33,22 +33,21 @@ export function ToyEdit() {
     setToyToEdit(prevToy => ({ ...prevToy, [field]: value }))
   }
 
-  function onSaveToy(ev) {
+  async function onSaveToy(ev) {
     ev.preventDefault()
 
     // Dummy details in case the user don't fill them (For dev purposes)
     if (!toyToEdit.name) toyToEdit.name = 'Anonymous toy'
     if (!toyToEdit.price) toyToEdit.price = 100
 
-    saveToy(toyToEdit)
-      .then(() => {
-        showSuccessMsg('Toy Saved!')
-        navigate('/toy')
-      })
-      .catch(err => {
-        console.error('Had issues in saving toy', err)
-        showErrorMsg('Had issues in saving toy')
-      })
+    try {
+      await saveToy(toyToEdit)
+      showSuccessMsg('Toy Saved!')
+      navigate('/toy')
+    } catch (err) {
+      console.error('Had issues in saving toy', err)
+      showErrorMsg('Had issues in saving toy')
+    }
   }
 
   return (

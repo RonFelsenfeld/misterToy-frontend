@@ -21,7 +21,7 @@ export const toyService = {
   getStoreBranches,
 }
 
-function query(filterBy = {}, sortBy = {}) {
+function query(filterBy = { name: '' }, sortBy = { name: 1 }) {
   return httpService.get(BASE_URL, { filterBy, sortBy })
 
   // return storageService.query(STORAGE_KEY).then(toys => {
@@ -62,7 +62,7 @@ function remove(toyId) {
 
 function save(toy) {
   if (toy._id) {
-    return httpService.put(BASE_URL, toy)
+    return httpService.put(BASE_URL + toy._id, toy)
     // return storageService.put(STORAGE_KEY, toy)
   } else {
     return httpService.post(BASE_URL, toy)

@@ -15,14 +15,14 @@ export function Dashboard() {
     loadToys()
   }, [])
 
-  function loadToys() {
-    toyService
-      .query()
-      .then(setToys)
-      .catch(err => {
-        console.error('Dashboard - Had issues loading toys')
-        navigate('/')
-      })
+  async function loadToys() {
+    try {
+      const toys = await toyService.query()
+      setToys(toys)
+    } catch (err) {
+      console.error('Dashboard - Had issues loading toys')
+      navigate('/')
+    }
   }
 
   if (!toys) return <div className="loading-msg">Loading dashboard...</div>

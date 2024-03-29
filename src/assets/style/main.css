@@ -14,6 +14,7 @@
 @import './pages/toy-details.css';
 @import './pages/toy-edit.css';
 @import './pages/dashboard.css';
+@import './pages/login-signup.css';
 
 /* CMPS */
 @import './cmps/app-header.css';
@@ -22,3 +23,4 @@
 @import './cmps/toy-preview.css';
 @import './cmps/toy-filter.css';
 @import './cmps/toy-sort.css';
+@import './cmps/login-form.css';
