@@ -15,30 +15,32 @@ export function ToyPreview({ toy, onRemoveToy }) {
   }
 
   return (
-    <article className="toy-preview flex column align-center">
-      <h4 className="toy-name">{toy.name}</h4>
+    <Link to={`/toy/${toy._id}`}>
+      <article className="toy-preview flex column align-center">
+        <h4 className="toy-name">{toy.name}</h4>
 
-      <div className="toy-desc-container flex column align-center">
-        <p className="toy-price">${toy.price}</p>
-        <p className={`toy-stock ${getStockClass(toy)}`}>{getIsInStock(toy)}</p>
-      </div>
+        <div className="toy-desc-container flex column align-center">
+          <p className="toy-price">${toy.price}</p>
+          <p className={`toy-stock ${getStockClass(toy)}`}>{getIsInStock(toy)}</p>
+        </div>
 
-      <img className="toy-img" src={`https://robohash.org/${toy.name}?set=set1`} alt="" />
+        <img className="toy-img" src={`https://robohash.org/${toy.name}?set=set1`} alt="" />
 
-      <div className="actions-container flex">
-        <Link to={`/toy/${toy._id}`}>
-          <button className="btn details"></button>
-        </Link>
+        <div className="actions-container flex">
+          <Link to={`/toy/${toy._id}`}>
+            <button className="btn details"></button>
+          </Link>
 
-        {user && user.isAdmin && (
-          <>
-            <button className="btn remove" onClick={() => onRemoveToy(toy._id)}></button>
-            <Link to={`/toy/edit/${toy._id}`}>
-              <button className="btn edit"></button>
-            </Link>
-          </>
-        )}
-      </div>
-    </article>
+          {user && user.isAdmin && (
+            <>
+              <button className="btn remove" onClick={() => onRemoveToy(toy._id)}></button>
+              <Link to={`/toy/edit/${toy._id}`}>
+                <button className="btn edit"></button>
+              </Link>
+            </>
+          )}
+        </div>
+      </article>
+    </Link>
   )
 }

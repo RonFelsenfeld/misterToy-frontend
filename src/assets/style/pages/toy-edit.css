@@ -1,9 +1,10 @@
 .toy-edit {
+  max-width: 50%;
   gap: 2em;
 
   padding-block: 2.5em;
   border-radius: var(--main-br);
-  margin-block-start: 3em;
+  margin: 3em auto;
 
   background-color: var(--main-clr-1);
   box-shadow: var(--box-shadow);

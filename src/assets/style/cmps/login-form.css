@@ -4,7 +4,7 @@
 }
 
 .login-form > *:is(input, button) {
-  width: 40%;
+  width: 350px;
   padding: 1em;
   border: 1px solid var(--clr-gray-1);
   border-radius: var(--main-br);

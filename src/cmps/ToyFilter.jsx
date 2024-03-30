@@ -31,7 +31,7 @@ export function ToyFilter({ onSetFilter, filterBy }) {
         <input
           type="text"
           id="name"
-          placeholder="Filter by name"
+          placeholder="By name"
           name="name"
           value={filterByToEdit.name}
           onChange={handleChange}
@@ -40,7 +40,7 @@ export function ToyFilter({ onSetFilter, filterBy }) {
         <input
           type="number"
           id="maxPrice"
-          placeholder="Filter by price"
+          placeholder="By max price"
           name="maxPrice"
           value={filterByToEdit.maxPrice ? filterByToEdit.maxPrice : ''}
           onChange={handleChange}

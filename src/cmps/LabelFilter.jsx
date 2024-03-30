@@ -11,7 +11,7 @@ import Checkbox from '@mui/material/Checkbox'
 import { toyService } from '../services/toy.service'
 
 export function LabelFilter({ onSetFilter, filterBy }) {
-  const [filterByLabels, setFilterByLabels] = useState([])
+  const [filterByLabels, setFilterByLabels] = useState(filterBy.labels)
   const labels = toyService.getLabels()
 
   useEffect(() => {

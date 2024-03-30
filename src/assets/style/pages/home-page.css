@@ -1,8 +1,55 @@
-.home-page h1 {
-  font-size: 3em;
+.home-page {
+  gap: 1em;
 }
 
-.home-page p {
-  font-size: 1.6em;
-  line-height: 1.6;
+.home-page .welcome-container {
+  flex-grow: 1;
+}
+
+.home-page .welcome-container .main-title {
+  margin-block-end: 0.5em;
+
+  font-size: 5em;
+  font-family: RobotoBold, sans-serif;
+  letter-spacing: -0.6px;
+}
+
+.home-page .welcome-container .secondary-title {
+  margin-block-end: 3em;
+  font-size: 2.5em;
+}
+
+.home-page .welcome-container .btn-cta {
+  position: relative;
+
+  padding: 1em;
+  border-radius: 2em;
+
+  font-size: 1.8em;
+  color: var(--clr-gray--1);
+  background-color: var(--clr-login-btn);
+}
+
+.home-page .welcome-container .btn-cta:hover {
+  scale: 1.1;
+  padding-inline-end: 2.5em;
+}
+
+.home-page .welcome-container .btn-cta::after {
+  position: absolute;
+  right: 0.8em;
+
+  font-family: faSolid;
+  content: '\f30b';
+
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.home-page .welcome-container .btn-cta:hover::after {
+  opacity: 1;
+}
+
+.home-page img {
+  max-width: 50%;
 }

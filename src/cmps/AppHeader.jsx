@@ -12,7 +12,7 @@ export function AppHeader() {
         <nav className="main-nav flex align-center">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
-          <NavLink to="/toy">Toys</NavLink>
+          <NavLink to="/toy">Shop</NavLink>
 
           {user && user.isAdmin && <NavLink to="/dashboard">Dashboard</NavLink>}
           {!user && <NavLink to="/login">Login</NavLink>}
