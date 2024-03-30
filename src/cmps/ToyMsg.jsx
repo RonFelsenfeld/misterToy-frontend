@@ -27,6 +27,20 @@ export function ToyMsg({ toy, setToy }) {
     }
   }
 
+  async function onRemoveMsg(msgId) {
+    try {
+      const removedMsgId = await toyService.removeToyMsg(toy, msgId)
+      showSuccessMsg('Message deleted')
+      setToy(prevToy => ({
+        ...prevToy,
+        msgs: [...prevToy.msgs.filter(m => m.id !== removedMsgId)],
+      }))
+    } catch (err) {
+      console.error('Had issues in adding msg', err)
+      showErrorMsg('Had issues in adding your message')
+    }
+  }
+
   return (
     <section className="toy-msgs">
       {user && (
@@ -39,6 +53,7 @@ export function ToyMsg({ toy, setToy }) {
             placeholder="Your message"
             onChange={handleChange}
             required
+            maxLength={30}
           />
 
           <button className="btn-add-msg">Add</button>
@@ -47,15 +62,24 @@ export function ToyMsg({ toy, setToy }) {
 
       <h3 className="msgs-title">Toys Messages:</h3>
 
-      <ul className="flex column clean-list">
-        {toy.msgs.map(msg => (
-          <li key={`${msg.id}`} className="toy-msg flex align-center">
-            <p className="msg-txt">
-              {msg.txt} <span className="msg-by">({msg.by.fullname})</span>
-            </p>
-          </li>
-        ))}
-      </ul>
+      {!!toy.msgs.length && (
+        <ul className="flex column clean-list">
+          {toy.msgs.map(msg => (
+            <li key={`${msg.id}`} className="toy-msg flex align-center">
+              <p className="msg-txt">
+                {msg.txt} <span className="msg-by">({msg.by.fullname})</span>
+              </p>
+
+              {/* If the logged in user added the msg or it's an admin, give the option to remove the msg */}
+              {user && (user._id === msg.by._id || user.isAdmin) && (
+                <button className="btn-remove-msg" onClick={() => onRemoveMsg(msg.id)}></button>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {!toy.msgs.length && <p className="no-msgs">Be the first to add a message</p>}
     </section>
   )
 }

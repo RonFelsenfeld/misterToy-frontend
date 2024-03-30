@@ -5,6 +5,8 @@ import { toyService } from '../services/toy.service'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 
 import { saveToy } from '../store/actions/toy.actions'
+import { LabelSelect } from '../cmps/LabelSelect'
+import { utilService } from '../services/util.service'
 
 export function ToyEdit() {
   const [toyToEdit, setToyToEdit] = useState(toyService.getEmptyToy())
@@ -33,12 +35,23 @@ export function ToyEdit() {
     setToyToEdit(prevToy => ({ ...prevToy, [field]: value }))
   }
 
+  const handleLabelsAdd = event => {
+    const {
+      target: { value },
+    } = event
+    setToyToEdit(prevToy => ({
+      ...prevToy,
+      labels: typeof value === 'string' ? value.split(',') : value,
+    }))
+  }
+
   async function onSaveToy(ev) {
     ev.preventDefault()
 
     // Dummy details in case the user don't fill them (For dev purposes)
     if (!toyToEdit.name) toyToEdit.name = 'Anonymous toy'
     if (!toyToEdit.price) toyToEdit.price = 100
+    if (!toyToEdit.description) toyToEdit.description = utilService.makeLorem(20)
 
     try {
       await saveToy(toyToEdit)
@@ -48,6 +61,14 @@ export function ToyEdit() {
       console.error('Had issues in saving toy', err)
       showErrorMsg('Had issues in saving toy')
     }
+  }
+
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        width: 500,
+      },
+    },
   }
 
   return (
@@ -79,6 +100,12 @@ export function ToyEdit() {
               onChange={handleChange}
             />
           </div>
+
+          <LabelSelect
+            labelsState={toyToEdit.labels}
+            handleChange={handleLabelsAdd}
+            MenuProps={MenuProps}
+          />
 
           <div className="input-container stock flex align-center">
             {' '}

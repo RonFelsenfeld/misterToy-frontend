@@ -12,6 +12,7 @@ export const toyService = {
   save,
   remove,
   addToyMsg,
+  removeToyMsg,
   getEmptyToy,
   getDefaultFilter,
   getDefaultSort,
@@ -75,12 +76,18 @@ function addToyMsg(toy, msg) {
   return httpService.post(BASE_URL + toy._id + '/msg', { txt: msg })
 }
 
+function removeToyMsg(toy, msgId) {
+  return httpService.delete(BASE_URL + toy._id + `/msg/${msgId}`)
+}
+
 function getEmptyToy() {
   return {
     name: '',
     price: 0,
+    description: '',
     labels: [],
     inStock: true,
+    msgs: [],
   }
 }
 

@@ -45,8 +45,8 @@ export function ToyDetails() {
 
       <div className="main-container flex">
         <div className="details-container flex column">
-          <h1 className="toy-name">Toy name : {toy.name}</h1>
-          <h5 className="toy-price">Price: ${toy.price}</h5>
+          <h1 className="toy-name">{toy.name}</h1>
+
           <ul className="toy-labels flex clean-list">
             {toy.labels.map((label, idx) => (
               <li key={`${label + idx}`} className="label">
@@ -54,6 +54,8 @@ export function ToyDetails() {
               </li>
             ))}
           </ul>
+
+          <h5 className="toy-price">${toy.price}</h5>
 
           <p className="toy-desc">{toy.description}</p>
           <p className={`toy-stock ${getStockClass(toy)}`}>{getIsInStock(toy)}</p>

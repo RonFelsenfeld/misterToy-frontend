@@ -1,6 +1,9 @@
 .toy-details {
+  width: 70%;
   padding: 2.5em;
   border-radius: var(--main-br);
+  margin: auto;
+
   background-color: var(--clr-gray--1);
 }
 
@@ -17,7 +20,7 @@
 
 .toy-details .main-container {
   gap: 2em;
-  margin-block-end: 3em;
+  margin-block-end: 4em;
 }
 
 .toy-details .details-container {
@@ -30,6 +33,7 @@
 
 .toy-details .toy-price {
   font-size: 2em;
+  margin-block-end: 1em;
 }
 
 .toy-details .toy-labels {
@@ -60,16 +64,21 @@
   color: var(--clr-out-stock);
 }
 
+.toy-details .main-container .toy-img {
+  width: 40%;
+}
+
 .toy-details .toy-msgs form {
   gap: 0.5em;
   margin-block-end: 1.5em;
 }
 
 .toy-details .toy-msgs form .msg-input {
+  width: 30%;
   padding: 0.5em;
   border: 1.5px solid var(--clr-gray-1);
+
   font-family: inherit;
-  width: 30%;
 }
 
 .toy-details .toy-msgs form .btn-add-msg {
@@ -100,5 +109,21 @@
 
 .toy-details .toy-msgs .toy-msg .msg-by {
   font-size: 0.8em;
+  color: var(--clr-gray-1);
+}
+
+.toy-details .toy-msgs .toy-msg .btn-remove-msg {
+  background-color: transparent;
+}
+
+.toy-details .toy-msgs .toy-msg .btn-remove-msg::before {
+  font-family: faSolid;
+  content: '\f1f8';
+  color: var(--clr-active-link);
+  font-size: 1em;
+}
+
+.toy-details .toy-msgs .no-msgs {
+  font-size: 1.2em;
   color: var(--clr-gray-1);
 }

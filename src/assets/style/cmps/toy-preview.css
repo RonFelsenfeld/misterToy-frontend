@@ -7,9 +7,11 @@
 }
 
 .toy-preview .toy-name {
+  margin-block-end: 1em;
+
   font-size: 2.5em;
   font-family: RobotoBold;
-  margin-block-end: 1em;
+  text-align: center;
 }
 
 .toy-preview .toy-desc-container {
