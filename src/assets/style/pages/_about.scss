@@ -1,0 +1,25 @@
+.about {
+  @include box;
+
+  padding: 3em;
+
+  .about-title {
+    font-size: 3em;
+    margin-block-end: 1em;
+  }
+
+  .greet {
+    margin-block-end: 1em;
+    font-size: 2em;
+    color: $main-clr-1;
+  }
+
+  .about-desc {
+    gap: 1.6em;
+    margin-block-end: 3em;
+  }
+
+  .about-desc p {
+    font-size: 1.6em;
+  }
+}

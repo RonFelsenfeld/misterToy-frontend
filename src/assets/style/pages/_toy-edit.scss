@@ -1,0 +1,55 @@
+.toy-edit {
+  @include box;
+
+  max-width: 50%;
+  gap: 2em;
+
+  padding-block: 2.5em;
+  margin: 3em auto;
+  box-shadow: $box-shadow;
+
+  h2 {
+    font-size: 3em;
+  }
+
+  form {
+    gap: 3em;
+
+    .inputs-container {
+      gap: 2em;
+    }
+
+    .input-container {
+      width: 100%;
+      gap: 1.5em;
+
+      &.stock {
+        justify-content: center;
+      }
+
+      label {
+        font-size: 1.6em;
+      }
+
+      input {
+        padding: 0.3em;
+        font-size: 1.4em;
+      }
+    }
+  }
+
+  .actions-container {
+    gap: 1em;
+    width: 100%;
+
+    .btn {
+      padding: 0.5em;
+      border-radius: $btn-br;
+
+      &.btn-save {
+        flex-grow: 1;
+        background-color: $clr-success;
+      }
+    }
+  }
+}

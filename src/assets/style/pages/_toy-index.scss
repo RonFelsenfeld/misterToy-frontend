@@ -1,0 +1,41 @@
+.toy-index {
+  .btn-add-toy {
+    @include box;
+
+    padding: 1em;
+    margin-block-end: 1em;
+
+    box-shadow: $box-shadow;
+
+    &::before {
+      font-family: faSolid;
+      content: '\2b';
+      font-size: 1.2em;
+    }
+  }
+
+  .filter-sort-container {
+    @include box;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1.5em;
+
+    padding: 2em;
+    margin-block-end: 2em;
+
+    box-shadow: $box-shadow;
+
+    .filter-sort-title {
+      grid-column: 1 / -1;
+
+      font-size: 2em;
+      font-family: RobotoBold;
+    }
+  }
+
+  .no-toys-msg {
+    text-align: center;
+    font-size: 3em;
+  }
+}

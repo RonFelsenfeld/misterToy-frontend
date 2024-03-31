@@ -22,9 +22,9 @@ export function ToyPreview({ toy, onRemoveToy }) {
         <div className="toy-desc-container flex column align-center">
           <p className="toy-price">${toy.price}</p>
           <p className={`toy-stock ${getStockClass(toy)}`}>{getIsInStock(toy)}</p>
-        </div>
 
-        <img className="toy-img" src={`https://robohash.org/${toy.name}?set=set1`} alt="" />
+          <img className="toy-img" src={`https://robohash.org/${toy.name}?set=set1`} alt="" />
+        </div>
       </Link>
 
       <div className="actions-container flex justify-center">

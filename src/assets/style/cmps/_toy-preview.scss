@@ -1,0 +1,82 @@
+.toy-preview {
+  @include box;
+
+  padding: 1.5em;
+  box-shadow: $box-shadow;
+
+  .toy-name {
+    margin-block-end: 1em;
+
+    font-size: 2.5em;
+    font-family: RobotoBold;
+    text-align: center;
+  }
+
+  .toy-desc-container {
+    gap: 2em;
+    margin-block-end: 2em;
+  }
+
+  .toy-price {
+    font-size: 2em;
+  }
+
+  .toy-stock {
+    font-size: 1.6em;
+    text-transform: uppercase;
+    font-family: RobotoBold;
+    color: $clr-in-stock;
+
+    &.out-stock {
+      color: $clr-out-stock;
+    }
+  }
+
+  .toy-img {
+    margin-block-end: 1.5em;
+  }
+
+  .actions-container {
+    gap: 1.5em;
+
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s;
+
+    .btn {
+      background-color: transparent;
+      padding: 0.5em;
+
+      &::before {
+        font-family: faSolid;
+        font-size: 1.6em;
+        transition: color 0.4s;
+      }
+
+      &:hover {
+        &::before {
+          color: $main-clr-1;
+        }
+      }
+
+      &.remove::before {
+        content: '\f1f8';
+      }
+
+      &.details::before {
+        content: '\f1f8';
+      }
+
+      &.edit::before {
+        content: '\f1f8';
+      }
+    }
+  }
+
+  &:hover {
+    .actions-container {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

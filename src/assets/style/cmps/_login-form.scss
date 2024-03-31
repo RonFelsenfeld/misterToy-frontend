@@ -1,0 +1,21 @@
+.login-form {
+  form {
+    gap: 1em;
+    margin-block-end: 1em;
+  }
+
+  > *:is(input, button) {
+    width: 350px;
+    padding: 1em;
+    border: 1px solid $clr-gray-1;
+    border-radius: $main-br;
+
+    font-family: RobotoRegular, sans-serif;
+  }
+
+  .btn-submit {
+    background-color: $clr-login-btn;
+    color: $clr-gray--1;
+    font-size: 1.6em;
+  }
+}

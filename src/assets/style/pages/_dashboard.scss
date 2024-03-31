@@ -1,0 +1,28 @@
+.dashboard {
+  @include box;
+  padding: 1.5em 2em;
+
+  .dashboard-title {
+    font-size: 3.5em;
+    font-family: RobotoBold;
+    margin-block-end: 1em;
+  }
+
+  .chart-title {
+    font-size: 2.5em;
+    font-family: RobotoBold;
+    margin-block-end: 2em;
+  }
+
+  .chart-container {
+    width: 80%;
+    height: 300px;
+    margin-block-end: 10em;
+
+    &.pie {
+      width: 50%;
+      margin: auto;
+      margin-block-end: 10em;
+    }
+  }
+}

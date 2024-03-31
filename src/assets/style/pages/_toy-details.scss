@@ -1,0 +1,130 @@
+.toy-details {
+  @include box;
+
+  width: 70%;
+  padding: 2.5em;
+  margin: auto;
+
+  .btn-back {
+    background-color: transparent;
+    margin-block-end: 3em;
+
+    &::before {
+      font-family: faSolid;
+      content: '\f060';
+      font-size: 1.5em;
+    }
+  }
+
+  .main-container {
+    gap: 2em;
+    margin-block-end: 4em;
+
+    .details-container {
+      gap: 1em;
+
+      .toy-name {
+        font-size: 3em;
+      }
+
+      .toy-price {
+        font-size: 2em;
+        margin-block-end: 1em;
+      }
+
+      .toy-labels {
+        gap: 1em;
+
+        .label {
+          font-size: 1.5em;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          color: $main-clr-base;
+        }
+      }
+
+      .toy-desc {
+        font-size: 1.6em;
+        line-height: 1.6em;
+        text-align: justify;
+      }
+
+      .toy-stock {
+        font-size: 2em;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $clr-in-stock;
+
+        &.out-stock {
+          color: $clr-out-stock;
+        }
+      }
+    }
+
+    .toy-img {
+      width: 40%;
+    }
+  }
+
+  .toy-msgs {
+    form {
+      gap: 0.5em;
+      margin-block-end: 1.5em;
+
+      .msg-input {
+        width: 30%;
+        padding: 0.5em;
+        border: 1.5px solid $clr-gray-1;
+
+        font-family: inherit;
+      }
+
+      .btn-add-msg {
+        width: 4em;
+        border: 1.5px solid $clr-gray-1;
+
+        font-size: 1.6em;
+        background-color: $clr-login-btn;
+        color: $clr-gray--1;
+      }
+    }
+
+    .msgs-title {
+      font-size: 2em;
+      margin-block-end: 0.5em;
+    }
+
+    ul {
+      gap: 0.8em;
+    }
+
+    .toy-msg {
+      font-size: 1.6em;
+
+      .msg-txt {
+        font-size: 1em;
+      }
+
+      .msg-by {
+        font-size: 0.8em;
+        color: $clr-gray-1;
+      }
+
+      .btn-remove-msg {
+        background-color: transparent;
+
+        &::before {
+          font-family: faSolid;
+          content: '\f1f8';
+          color: $clr-active-link;
+          font-size: 1em;
+        }
+      }
+    }
+
+    .no-msgs {
+      font-size: 1.2em;
+      color: $clr-gray-1;
+    }
+  }
+}

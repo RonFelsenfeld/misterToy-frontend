@@ -45,7 +45,7 @@ export function LoginForm({ onLogin, isSignup }) {
             required
           />
         )}
-        <button>{isSignup ? 'Signup' : 'Login'}</button>
+        <button className="btn-submit">{isSignup ? 'Signup' : 'Login'}</button>
       </form>
     </article>
   )
