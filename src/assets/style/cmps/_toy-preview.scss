@@ -32,6 +32,17 @@
     }
   }
 
+  .toy-labels {
+    gap: 1em;
+
+    .label {
+      font-size: 1.2em;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: $main-clr-base;
+    }
+  }
+
   .toy-img {
     margin-block-end: 1.5em;
   }

@@ -39,6 +39,7 @@
 
       .toy-labels {
         gap: 1em;
+        flex-wrap: wrap;
 
         .label {
           font-size: 1.5em;
