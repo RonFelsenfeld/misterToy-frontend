@@ -1,7 +1,11 @@
 .login-signup {
   @include box;
 
-  max-width: 50%;
+  @include for-mobile-layout {
+    max-width: 100%;
+  }
+
+  max-width: 60%;
   padding: 4em 0;
   margin: auto;
 

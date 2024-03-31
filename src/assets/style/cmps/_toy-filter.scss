@@ -1,4 +1,9 @@
 .toy-filter {
+  @include for-narrow-layout {
+    width: 100%;
+    justify-self: start;
+  }
+
   .filter-title {
     font-size: 2.5em;
     margin-block-end: 0.5em;
@@ -6,6 +11,11 @@
 
   form {
     gap: 1em;
+
+    @include for-narrow-layout {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
 
     > :is(input, select) {
       height: 48px;

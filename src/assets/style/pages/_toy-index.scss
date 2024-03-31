@@ -26,11 +26,20 @@
 
     box-shadow: $box-shadow;
 
+    @include for-normal-layout {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+
     .filter-sort-title {
       grid-column: 1 / -1;
 
       font-size: 2em;
       font-family: RobotoBold;
+
+      @include for-normal-layout {
+        font-size: 3em;
+      }
     }
   }
 

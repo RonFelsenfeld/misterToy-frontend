@@ -1,7 +1,12 @@
 .about {
   @include box;
 
+  @include for-narrow-layout {
+    flex-direction: column;
+  }
+
   padding: 3em;
+  gap: 2em;
 
   .about-title {
     font-size: 3em;
@@ -21,5 +26,14 @@
 
   .about-desc p {
     font-size: 1.6em;
+    line-height: 1.6em;
+  }
+
+  .map {
+    width: 60%;
+
+    @include for-narrow-layout {
+      width: 100%;
+    }
   }
 }

@@ -5,6 +5,8 @@
 
 .toy-filter form {
   gap: 1em;
+
+  @inclu;
 }
 
 .toy-filter form > :is(input, select) {

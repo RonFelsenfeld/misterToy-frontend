@@ -10,7 +10,7 @@ export function About() {
         <div className="about-desc flex column">
           <p>MisterToy is one of the most popular and top-rated toys store in Israel. </p>
           <p>Our motivation is to give you the best service for the lowest price. </p>
-          <p>You can find us at our branches, take a look at the map</p>
+          <p>You can find us at our branches, take a look at the map.</p>
         </div>
         <h4 className="greet">We are waiting for you!</h4>
       </div>

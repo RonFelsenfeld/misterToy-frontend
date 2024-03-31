@@ -1,9 +1,9 @@
 .toy-details {
   @include box;
 
-  width: 70%;
   padding: 2.5em;
   margin: auto;
+  margin-block-end: 2em;
 
   .btn-back {
     background-color: transparent;
@@ -19,6 +19,11 @@
   .main-container {
     gap: 2em;
     margin-block-end: 4em;
+
+    @include for-narrow-layout {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
 
     .details-container {
       gap: 1em;
@@ -63,6 +68,10 @@
 
     .toy-img {
       width: 40%;
+
+      @include for-narrow-layout {
+        width: 60%;
+      }
     }
   }
 

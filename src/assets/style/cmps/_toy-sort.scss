@@ -2,6 +2,10 @@
   justify-self: end;
   gap: 1.5em;
 
+  @include for-normal-layout {
+    justify-self: center;
+  }
+
   select {
     padding: 0.5em;
   }

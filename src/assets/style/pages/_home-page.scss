@@ -1,8 +1,18 @@
 .home-page {
   gap: 1em;
 
+  @include for-narrow-layout {
+    flex-direction: column-reverse;
+  }
+
   .welcome-container {
     flex-grow: 1;
+
+    @include for-narrow-layout {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
     .main-title {
       margin-block-end: 0.5em;
@@ -15,6 +25,11 @@
     .secondary-title {
       margin-block-end: 3em;
       font-size: 2.5em;
+
+      @include for-narrow-layout {
+        margin-block-end: 2em;
+        text-align: center;
+      }
     }
 
     .btn-cta {
@@ -26,6 +41,10 @@
       font-size: 1.8em;
       color: $clr-gray--1;
       background-color: $clr-login-btn;
+
+      @include for-narrow-layout {
+        margin-block-end: 2em;
+      }
 
       &:hover {
         scale: 1.1;
@@ -51,5 +70,9 @@
 
   img {
     max-width: 50%;
+
+    @include for-narrow-layout {
+      max-width: 100%;
+    }
   }
 }
