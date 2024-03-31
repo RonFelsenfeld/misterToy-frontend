@@ -9,6 +9,7 @@ export const SET_FILTER_BY = 'SET_FILTER_BY'
 export const SET_SORT_BY = 'SET_SORT_BY'
 
 export const SET_IS_LOADING = 'SET_IS_LOADING'
+export const SET_IS_MENU_OPEN = 'SET_IS_MENU_OPEN'
 
 const initialState = {
   toys: [],
@@ -57,7 +58,6 @@ export function toyReducer(state = initialState, action = {}) {
         ...state,
         sortBy: { ...action.sortBy },
       }
-
     default:
       return state
   }

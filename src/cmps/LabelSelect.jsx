@@ -18,7 +18,7 @@ export function LabelSelect({ labelsState, handleChange, MenuProps }) {
         <FormControl
           sx={{
             m: 1,
-            width: 150,
+            width: '200px',
             backgroundColor: 'var(--clr-gray--1)',
             border: 'px solid lightgray',
           }}
