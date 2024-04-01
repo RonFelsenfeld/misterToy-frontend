@@ -38,11 +38,18 @@ export function AppHeader() {
             <button onClick={closeMenu}>Shop</button>
           </NavLink>
 
+          {user && (
+            <NavLink to="/user">
+              <button onClick={closeMenu}>Profile</button>
+            </NavLink>
+          )}
+
           {user && user.isAdmin && (
             <NavLink to="/dashboard">
               <button onClick={closeMenu}>Dashboard</button>
             </NavLink>
           )}
+
           {!user && (
             <NavLink to="/login">
               <button onClick={closeMenu}>Login</button>

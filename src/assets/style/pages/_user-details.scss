@@ -1,0 +1,59 @@
+.user-details {
+  @include box;
+  padding: 2em;
+
+  .profile-title {
+    padding: 0.5em;
+    border-radius: $main-br;
+    margin-block-end: 1em;
+
+    font-size: 3em;
+    letter-spacing: 1.5px;
+    font-family: RobotoBold, sans-serif;
+    background-color: $clr-gray-1;
+  }
+
+  .details-container {
+    gap: 1em;
+    padding: 0.5em;
+
+    margin-block-end: 2em;
+
+    .details-title {
+      font-size: 2.5em;
+    }
+
+    .user-name {
+      font-size: 1.6em;
+    }
+
+    .user-id {
+      font-size: 1.6em;
+    }
+  }
+
+  .reviews-container {
+    gap: 0.9em;
+    padding: 0.5em;
+
+    .reviews-title {
+      font-size: 2.5em;
+    }
+
+    ul {
+      gap: 0.5em;
+
+      .user-review {
+        .review-txt {
+          font-size: 1.6rem;
+
+          .review-toy {
+            font-size: 0.8em;
+            color: $clr-gray-1;
+            margin-inline-start: 0.5em;
+          }
+        }
+      }
+    }
+  }
+}
