@@ -23,7 +23,9 @@ export function AppHeader() {
       <div className={`main-screen ${getMenuClass()}`} onClick={() => setIsMenuOpen(false)}></div>
 
       <div className="flex align-center justify-between">
-        <h1 className="main-title ">Mister Toy</h1>
+        <NavLink to="/">
+          <h1 className="main-title ">Mister Toy</h1>
+        </NavLink>
 
         <nav className={`main-nav flex align-center ${getMenuClass()}`}>
           <NavLink to="/">

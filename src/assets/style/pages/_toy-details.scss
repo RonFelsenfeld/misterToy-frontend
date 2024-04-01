@@ -76,20 +76,26 @@
     }
   }
 
-  .toy-msgs {
+  .msgs-reviews-container {
+    > * {
+      width: 50%;
+    }
+
     form {
       gap: 0.5em;
       margin-block-end: 1.5em;
 
-      .msg-input {
-        width: 30%;
+      .msg-input,
+      .review-input {
+        width: 50%;
         padding: 0.5em;
         border: 1.5px solid $clr-gray-1;
 
         font-family: inherit;
       }
 
-      .btn-add-msg {
+      .btn-add-msg,
+      .btn-add-review {
         width: 4em;
         border: 1.5px solid $clr-gray-1;
 
@@ -99,7 +105,8 @@
       }
     }
 
-    .msgs-title {
+    .msgs-title,
+    .reviews-title {
       font-size: 2em;
       margin-block-end: 0.5em;
     }
@@ -108,19 +115,21 @@
       gap: 0.8em;
     }
 
-    .toy-msg {
-      font-size: 1.6em;
-
-      .msg-txt {
+    .toy-msg,
+    .toy-review {
+      .msg-txt,
+      .review.txt {
         font-size: 1em;
       }
 
-      .msg-by {
+      .msg-by,
+      .review-by {
         font-size: 0.8em;
         color: $clr-gray-1;
       }
 
-      .btn-remove-msg {
+      .btn-remove-msg,
+      .btn-remove-review {
         background-color: transparent;
 
         &::before {
@@ -132,7 +141,8 @@
       }
     }
 
-    .no-msgs {
+    .no-msgs,
+    .no-reviews {
       font-size: 1.2em;
       color: $clr-gray-1;
     }

@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 
 import { toyService } from '../services/toy.service'
 import { showErrorMsg } from '../services/event-bus.service'
+
 import { ToyMsg } from '../cmps/ToyMsg'
+import { ToyReview } from '../cmps/ToyReview'
 
 export function ToyDetails() {
   const [toy, setToy] = useState(null)
@@ -64,7 +65,10 @@ export function ToyDetails() {
         <img className="toy-img" src={`https://robohash.org/${toy.name}?set=set1`} alt="" />
       </div>
 
-      <ToyMsg toy={toy} setToy={setToy} />
+      <div className="msgs-reviews-container flex justify-between">
+        <ToyMsg toy={toy} setToy={setToy} />
+        <ToyReview toy={toy} setToy={setToy} />
+      </div>
     </section>
   )
 }
