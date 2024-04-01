@@ -23,7 +23,7 @@ export function ToyPreview({ toy, onRemoveToy }) {
           <p className="toy-price">${toy.price}</p>
           <p className={`toy-stock ${getStockClass(toy)}`}>{getIsInStock(toy)}</p>
 
-          <img className="toy-img" src={`https://robohash.org/${toy.name}?set=set1`} alt="" />
+          <img className="toy-img" src={toy.imgUrl} alt="" />
 
           <ul className="toy-labels flex clean-list">
             {toy.labels.slice(0, 3).map((label, idx) => (

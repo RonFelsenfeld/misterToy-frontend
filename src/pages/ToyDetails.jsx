@@ -67,14 +67,14 @@ export function ToyDetails() {
 
           <p className="toy-desc">{toy.description}</p>
           <p className={`toy-stock ${getStockClass(toy)}`}>{getIsInStock(toy)}</p>
+
+          <div className="msgs-reviews-container flex justify-between">
+            <ToyMsg toy={toy} setToy={setToy} />
+            <ToyReview toy={toy} toyReviews={toyReviews} />
+          </div>
         </div>
 
-        <img className="toy-img" src={`https://robohash.org/${toy.name}?set=set1`} alt="" />
-      </div>
-
-      <div className="msgs-reviews-container flex justify-between">
-        <ToyMsg toy={toy} setToy={setToy} />
-        <ToyReview toy={toy} toyReviews={toyReviews} />
+        <img className="toy-img" src={toy.imgUrl} alt="" />
       </div>
     </section>
   )

@@ -26,6 +26,7 @@
     text-transform: uppercase;
     font-family: RobotoBold;
     color: $clr-in-stock;
+    flex-grow: 1;
 
     &.out-stock {
       color: $clr-out-stock;
@@ -45,6 +46,7 @@
 
   .toy-img {
     margin-block-end: 1.5em;
+    height: 150px;
   }
 
   .actions-container {
