@@ -47,16 +47,16 @@ export function toyReducer(state = initialState, action = {}) {
         filterBy: { ...state.filterBy, ...action.filterBy },
       }
 
-    case SET_IS_LOADING:
-      return {
-        ...state,
-        isLoading: action.isLoading,
-      }
-
     case SET_SORT_BY:
       return {
         ...state,
         sortBy: { ...action.sortBy },
+      }
+
+    case SET_IS_LOADING:
+      return {
+        ...state,
+        isLoading: action.isLoading,
       }
     default:
       return state

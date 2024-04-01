@@ -77,6 +77,16 @@
   }
 
   .msgs-reviews-container {
+    @include for-mobile-layout {
+      flex-direction: column;
+
+      gap: 6em;
+
+      > * {
+        min-width: 80%;
+      }
+    }
+
     > * {
       width: 50%;
     }
@@ -87,6 +97,10 @@
 
       .msg-input,
       .review-input {
+        @include for-mobile-layout {
+          width: 100%;
+        }
+
         width: 50%;
         padding: 0.5em;
         border: 1.5px solid $clr-gray-1;
@@ -118,8 +132,8 @@
     .toy-msg,
     .toy-review {
       .msg-txt,
-      .review.txt {
-        font-size: 1em;
+      .review-txt {
+        font-size: 1.6em;
       }
 
       .msg-by,

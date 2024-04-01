@@ -1,19 +1,26 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import { toyService } from '../services/toy.service'
 import { showErrorMsg } from '../services/event-bus.service'
 
 import { ToyMsg } from '../cmps/ToyMsg'
 import { ToyReview } from '../cmps/ToyReview'
+import { loadReviews } from '../store/actions/review.action'
 
 export function ToyDetails() {
   const [toy, setToy] = useState(null)
+  const toyReviews = useSelector(storeState => storeState.reviewModule.reviews)
+
   const { toyId } = useParams()
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (toyId) loadToy()
+    if (toyId) {
+      loadToy()
+      loadReviews({ toyId })
+    }
   }, [toyId])
 
   async function loadToy() {
@@ -67,7 +74,7 @@ export function ToyDetails() {
 
       <div className="msgs-reviews-container flex justify-between">
         <ToyMsg toy={toy} setToy={setToy} />
-        <ToyReview toy={toy} setToy={setToy} />
+        <ToyReview toy={toy} toyReviews={toyReviews} />
       </div>
     </section>
   )

@@ -8,9 +8,9 @@ export const reviewService = {
   remove,
 }
 
-function query(filterBy) {
-  var queryStr = !filterBy ? '' : `?name=${filterBy.name}`
-  return httpService.get(`review${queryStr}`)
+function query(filterBy = {}) {
+  // var queryStr = !filterBy ? '' : `?name=${filterBy.name}`
+  return httpService.get('review', { filterBy })
 }
 
 async function remove(reviewId) {

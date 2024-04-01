@@ -36,8 +36,8 @@ export function ToyMsg({ toy, setToy }) {
         msgs: [...prevToy.msgs.filter(m => m.id !== removedMsgId)],
       }))
     } catch (err) {
-      console.error('Had issues in adding msg', err)
-      showErrorMsg('Had issues in adding your message')
+      console.error('Had issues in remove msg', err)
+      showErrorMsg('Had issues in remove your message')
     }
   }
 
