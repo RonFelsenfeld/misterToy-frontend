@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux'
 
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { toyService } from '../services/toy.service'
+import { SOCKET_EMIT_SEND_MSG } from '../services/socket.service'
 
 export function ToyMsg({ toy, setToy }) {
   const user = useSelector(storeState => storeState.userModule.loggedInUser)
   const [msg, setMsg] = useState('')
-  console.log(toy.msgs)
 
   function handleChange({ target }) {
     const { value } = target
@@ -19,6 +19,7 @@ export function ToyMsg({ toy, setToy }) {
 
     try {
       const savedMsg = await toyService.addToyMsg(toy, msg)
+      socketService.emit(SOCKET_EMIT_SEND_MSG, savedMsg)
       showSuccessMsg('Message added')
       setMsg('')
       setToy(prevToy => ({ ...prevToy, msgs: [...prevToy.msgs, savedMsg] }))

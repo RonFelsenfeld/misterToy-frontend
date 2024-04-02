@@ -1,19 +1,16 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import { toyService } from '../services/toy.service'
 import { showErrorMsg } from '../services/event-bus.service'
 
 import { ToyMsg } from '../cmps/ToyMsg'
 import { ToyReview } from '../cmps/ToyReview'
+import { loadReviews } from '../store/actions/review.action'
 import {
-  getActionAddReview,
-  getActionRemoveReview,
-  loadReviews,
-} from '../store/actions/review.action'
-import {
-  SOCKET_EVENT_REVIEW_ADDED,
+  SOCKET_EMIT_SET_TOPIC,
+  SOCKET_EVENT_ADD_MSG,
   SOCKET_EVENT_REVIEW_REMOVED,
   socketService,
 } from '../services/socket.service'
@@ -31,7 +28,9 @@ export function ToyDetails() {
       loadReviews({ toyId })
     }
 
-    socketService.on(SOCKET_EVENT_REVIEW_ADDED, async msg => {
+    socketService.emit(SOCKET_EMIT_SET_TOPIC, toyId)
+
+    socketService.on(SOCKET_EVENT_ADD_MSG, msg => {
       setToy(prevToy => ({ ...prevToy, msgs: [...prevToy.msgs, msg] }))
     })
 
@@ -43,7 +42,7 @@ export function ToyDetails() {
     })
 
     return () => {
-      socketService.off(SOCKET_EVENT_REVIEW_ADDED)
+      socketService.off(SOCKET_EVENT_ADD_MSG)
       socketService.off(SOCKET_EVENT_REVIEW_REMOVED)
     }
   }, [])
