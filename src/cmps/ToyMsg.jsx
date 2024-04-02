@@ -1,16 +1,37 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { toyService } from '../services/toy.service'
-import { SOCKET_EMIT_REMOVE_MSG, SOCKET_EMIT_SEND_MSG } from '../services/socket.service'
+import {
+  SOCKET_EMIT_REMOVE_MSG,
+  SOCKET_EMIT_SEND_MSG,
+  SOCKET_EMIT_TYPING,
+  SOCKET_EVENT_TYPING,
+} from '../services/socket.service'
 
 export function ToyMsg({ toy, setToy }) {
   const user = useSelector(storeState => storeState.userModule.loggedInUser)
   const [msg, setMsg] = useState('')
+  const [typingUser, setTypingUser] = useState(null)
+  console.log(typingUser)
+
+  useEffect(() => {
+    socketService.on(SOCKET_EVENT_TYPING, userName => {
+      setTypingUser(userName)
+    })
+
+    return () => {
+      socketService.off(SOCKET_EVENT_TYPING)
+    }
+  }, [])
 
   function handleChange({ target }) {
     const { value } = target
+
+    const typingUser = value ? user.fullname : null
+    socketService.emit(SOCKET_EMIT_TYPING, typingUser)
+
     setMsg(value)
   }
 
@@ -22,6 +43,7 @@ export function ToyMsg({ toy, setToy }) {
       socketService.emit(SOCKET_EMIT_SEND_MSG, savedMsg)
       showSuccessMsg('Message added')
       setMsg('')
+      setTypingUser(null)
       setToy(prevToy => ({ ...prevToy, msgs: [...prevToy.msgs, savedMsg] }))
     } catch (err) {
       console.error('Had issues in adding msg', err)
@@ -84,6 +106,8 @@ export function ToyMsg({ toy, setToy }) {
       )}
 
       {!toy.msgs.length && <p className="no-msgs">Be the first to add a message</p>}
+
+      {typingUser && <p className="typing-msg">{`${typingUser} is typing...`}</p>}
     </section>
   )
 }

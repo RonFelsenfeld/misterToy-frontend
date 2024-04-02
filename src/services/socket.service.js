@@ -7,6 +7,9 @@ export const SOCKET_EMIT_SEND_MSG = 'chat-send-msg'
 export const SOCKET_EMIT_REMOVE_MSG = 'chat-remove-msg'
 export const SOCKET_EMIT_DELETE_MSG = 'chat-delete-msg'
 
+export const SOCKET_EMIT_TYPING = 'chat-typing-msg'
+export const SOCKET_EVENT_TYPING = 'chat-someone-typing'
+
 export const SOCKET_EMIT_SET_TOPIC = 'chat-set-topic'
 export const SOCKET_EMIT_USER_WATCH = 'user-watch'
 export const SOCKET_EVENT_USER_UPDATED = 'user-updated'
