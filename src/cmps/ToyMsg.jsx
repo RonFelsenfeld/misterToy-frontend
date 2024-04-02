@@ -41,10 +41,13 @@ export function ToyMsg({ toy, setToy }) {
     try {
       const savedMsg = await toyService.addToyMsg(toy, msg)
       socketService.emit(SOCKET_EMIT_SEND_MSG, savedMsg)
-      showSuccessMsg('Message added')
+      socketService.emit(SOCKET_EMIT_TYPING, null)
+
       setMsg('')
       setTypingUser(null)
       setToy(prevToy => ({ ...prevToy, msgs: [...prevToy.msgs, savedMsg] }))
+
+      showSuccessMsg('Message added')
     } catch (err) {
       console.error('Had issues in adding msg', err)
       showErrorMsg('Had issues in adding your message')
