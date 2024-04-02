@@ -14,7 +14,7 @@ export function ToyMsg({ toy, setToy }) {
   const user = useSelector(storeState => storeState.userModule.loggedInUser)
   const [msg, setMsg] = useState('')
   const [typingUser, setTypingUser] = useState(null)
-  console.log(typingUser)
+  console.log(toy.msgs)
 
   useEffect(() => {
     socketService.on(SOCKET_EVENT_TYPING, userName => {

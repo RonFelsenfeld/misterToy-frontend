@@ -35,6 +35,7 @@ function createSocketService() {
     setup() {
       socket = io(baseUrl)
       const user = userService.getLoggedinUser()
+      console.log(user)
       if (user) this.login(user._id)
     },
     on(eventName, cb) {
