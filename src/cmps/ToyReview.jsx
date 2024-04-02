@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { addReview, loadReviews, removeReview } from '../store/actions/review.action'
+import { addReview, removeReview } from '../store/actions/review.action'
 
 export function ToyReview({ toy, toyReviews }) {
   const user = useSelector(storeState => storeState.userModule.loggedInUser)
@@ -38,22 +38,24 @@ export function ToyReview({ toy, toyReviews }) {
 
   return (
     <section className="toy-review">
-      <form className="flex">
-        <input
-          type="text"
-          name="review"
-          className="review-input"
-          placeholder="Your review"
-          value={review}
-          onChange={handleChange}
-          required
-          maxLength={30}
-        />
+      {user && (
+        <form className="flex">
+          <input
+            type="text"
+            name="review"
+            className="review-input"
+            placeholder="Your review"
+            value={review}
+            onChange={handleChange}
+            required
+            maxLength={30}
+          />
 
-        <button className="btn-add-review" onClick={onAddReview}>
-          Add
-        </button>
-      </form>
+          <button className="btn-add-review" onClick={onAddReview}>
+            Add
+          </button>
+        </form>
+      )}
 
       <h3 className="reviews-title">Toys Reviews:</h3>
 
@@ -62,7 +64,7 @@ export function ToyReview({ toy, toyReviews }) {
           {toyReviews.map(review => (
             <li key={`${review._id}`} className="toy-review flex align-center">
               <p className="review-txt">
-                {review?.txt}{' '}
+                {review?.txt}
                 <span className="review-by">({review?.byUser?.nickname || user.fullname})</span>
               </p>
 

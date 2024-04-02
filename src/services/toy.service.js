@@ -25,50 +25,21 @@ export const toyService = {
 
 function query(filterBy = { name: '' }, sortBy = { name: 1 }) {
   return httpService.get(BASE_URL, { filterBy, sortBy })
-
-  // return storageService.query(STORAGE_KEY).then(toys => {
-  //   let toysToReturn = toys.slice()
-
-  //   if (filterBy.name) {
-  //     const regExp = new RegExp(filterBy.name, 'i')
-  //     toysToReturn = toysToReturn.filter(toy => regExp.test(toy.name))
-  //   }
-
-  //   if (filterBy.inStock !== null) {
-  //     switch (filterBy.inStock) {
-  //       case true:
-  //         toysToReturn = toysToReturn.filter(toy => toy.inStock)
-  //         break
-
-  //       case false:
-  //         toysToReturn = toysToReturn.filter(toy => !toy.inStock)
-  //         break
-  //     }
-  //   }
-
-  //   toysToReturn = _sortToys(toysToReturn, sortBy)
-
-  //   return toysToReturn
-  // })
 }
 
 function getById(toyId) {
   return httpService.get(BASE_URL + toyId)
-  // return storageService.get(STORAGE_KEY, toyId)
 }
 
 function remove(toyId) {
   return httpService.delete(BASE_URL + toyId)
-  // return storageService.remove(STORAGE_KEY, toyId)
 }
 
 function save(toy) {
   if (toy._id) {
     return httpService.put(BASE_URL + toy._id, toy)
-    // return storageService.put(STORAGE_KEY, toy)
   } else {
     return httpService.post(BASE_URL, toy)
-    // return storageService.post(STORAGE_KEY, toy)
   }
 }
 

@@ -7,6 +7,7 @@ import { toyService } from '../services/toy.service'
 export function ToyMsg({ toy, setToy }) {
   const user = useSelector(storeState => storeState.userModule.loggedInUser)
   const [msg, setMsg] = useState('')
+  console.log(toy.msgs)
 
   function handleChange({ target }) {
     const { value } = target

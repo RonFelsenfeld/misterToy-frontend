@@ -1,13 +1,22 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { toyService } from '../services/toy.service'
 import { showErrorMsg } from '../services/event-bus.service'
 
 import { ToyMsg } from '../cmps/ToyMsg'
 import { ToyReview } from '../cmps/ToyReview'
-import { loadReviews } from '../store/actions/review.action'
+import {
+  getActionAddReview,
+  getActionRemoveReview,
+  loadReviews,
+} from '../store/actions/review.action'
+import {
+  SOCKET_EVENT_REVIEW_ADDED,
+  SOCKET_EVENT_REVIEW_REMOVED,
+  socketService,
+} from '../services/socket.service'
 
 export function ToyDetails() {
   const [toy, setToy] = useState(null)
@@ -21,7 +30,23 @@ export function ToyDetails() {
       loadToy()
       loadReviews({ toyId })
     }
-  }, [toyId])
+
+    socketService.on(SOCKET_EVENT_REVIEW_ADDED, async msg => {
+      setToy(prevToy => ({ ...prevToy, msgs: [...prevToy.msgs, msg] }))
+    })
+
+    socketService.on(SOCKET_EVENT_REVIEW_REMOVED, msgId => {
+      setToy(prevToy => ({
+        ...prevToy,
+        msgs: [...prevToy.msgs.filter(m => m.id !== msgId)],
+      }))
+    })
+
+    return () => {
+      socketService.off(SOCKET_EVENT_REVIEW_ADDED)
+      socketService.off(SOCKET_EVENT_REVIEW_REMOVED)
+    }
+  }, [])
 
   async function loadToy() {
     try {
