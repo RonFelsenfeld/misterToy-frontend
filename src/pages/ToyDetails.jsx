@@ -9,6 +9,8 @@ import { ToyMsg } from '../cmps/ToyMsg'
 import { ToyReview } from '../cmps/ToyReview'
 import { loadReviews } from '../store/actions/review.action'
 import {
+  SOCKET_EMIT_DELETE_MSG,
+  SOCKET_EMIT_REMOVE_MSG,
   SOCKET_EMIT_SET_TOPIC,
   SOCKET_EVENT_ADD_MSG,
   SOCKET_EVENT_REVIEW_REMOVED,
@@ -34,7 +36,7 @@ export function ToyDetails() {
       setToy(prevToy => ({ ...prevToy, msgs: [...prevToy.msgs, msg] }))
     })
 
-    socketService.on(SOCKET_EVENT_REVIEW_REMOVED, msgId => {
+    socketService.on(SOCKET_EMIT_DELETE_MSG, msgId => {
       setToy(prevToy => ({
         ...prevToy,
         msgs: [...prevToy.msgs.filter(m => m.id !== msgId)],

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { toyService } from '../services/toy.service'
-import { SOCKET_EMIT_SEND_MSG } from '../services/socket.service'
+import { SOCKET_EMIT_REMOVE_MSG, SOCKET_EMIT_SEND_MSG } from '../services/socket.service'
 
 export function ToyMsg({ toy, setToy }) {
   const user = useSelector(storeState => storeState.userModule.loggedInUser)
@@ -32,6 +32,8 @@ export function ToyMsg({ toy, setToy }) {
   async function onRemoveMsg(msgId) {
     try {
       const removedMsgId = await toyService.removeToyMsg(toy, msgId)
+      socketService.emit(SOCKET_EMIT_REMOVE_MSG, msgId)
+
       showSuccessMsg('Message deleted')
       setToy(prevToy => ({
         ...prevToy,
